@@ -1,6 +1,10 @@
 const Project = require('../models/project');
 
-function indexRoute(req, res, next){
+function newProject(req, res) {
+  return res.render('projects/new', { tech: Project.tech });
+}
+
+function indexProject(req, res, next){
   Project
   .find()
   .exec()
@@ -8,14 +12,14 @@ function indexRoute(req, res, next){
   .catch(next);
 }
 
-function createRoute(req, res, next){
+function createProject(req, res, next){
   Project
   .create(req.body)
   .then((project) => res.status(201).json(project))
   .catch(next);
 }
 
-function showRoute(req, res, next){
+function showProject(req, res, next){
   Project
   .findById(req.params.id)
   .exec()
@@ -27,7 +31,7 @@ function showRoute(req, res, next){
   .catch(next);
 }
 
-function deleteRoute(req, res, next){
+function deleteProject(req, res, next){
   Project
   .findById(req.params.id)
   .exec()
@@ -40,7 +44,7 @@ function deleteRoute(req, res, next){
   .catch(next);
 }
 
-function updateRoute(req, res, next){
+function updateProject(req, res, next){
   Project
   .findById(req.params.id)
   .exec()
@@ -62,9 +66,10 @@ function updateRoute(req, res, next){
 }
 
 module.exports = {
-  index: indexRoute,
-  create: createRoute,
-  show: showRoute,
-  delete: deleteRoute,
-  update: updateRoute
+  index: indexProject,
+  create: createProject,
+  show: showProject,
+  delete: deleteProject,
+  update: updateProject,
+  new: newProject
 };
