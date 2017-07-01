@@ -22,9 +22,12 @@ function ProjectsNewCtrl(Project, $state) {
       Project
         .save(vm.project)
         .$promise
-        .then(() => $state.go('projectsIndex'));
-    }
+        .then(() => {
+          // const payload = $auth.getPayload();
+          $state.go('usersShow', { id: projectId });
+        })
   }
+}
 
   vm.create = projectsCreate;
 }

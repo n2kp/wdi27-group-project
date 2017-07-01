@@ -17,6 +17,7 @@ function RegisterCtrl($auth, $state) {
   }
 
   vm.submit = submit;
+
 }
 
 LoginCtrl.$inject = ['$auth', '$state'];
@@ -27,10 +28,14 @@ function LoginCtrl($auth, $state) {
   function submit() {
     if (vm.loginForm.$valid) {
       $auth.login(vm.credentials)
-        .then(() => $state.go('usersShow'))
+        .then(() => {
+          const payload = $auth.getPayload();
+          $state.go('usersShow', { id: payload.userId });
+        })
         .catch(() => $state.go('login'));
     }
   }
 
   vm.submit = submit;
+  console.log(vm.user);
 }
