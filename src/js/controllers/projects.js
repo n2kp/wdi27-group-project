@@ -23,9 +23,10 @@ function ProjectsNewCtrl(Project, $state) {
         .save(vm.project)
         .$promise
         .then(() => {
-          // const payload = $auth.getPayload();
-          $state.go('usersShow', { id: projectId });
+          // const payload =$auth.getPayload();
+          $state.go('projectsIndex');
         })
+
   }
 }
 
