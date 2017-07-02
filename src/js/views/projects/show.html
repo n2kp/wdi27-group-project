@@ -2,4 +2,9 @@
 
 <h1>Individual project form</h1>
 
-{{projectsShow.project.title}}
+<h3>{{projectsShow.project.title}}</h3>
+<img ng-src="{{projectsShow.project.imageSRC}}" alt="">
+<p>Description: {{projectsShow.project.description}}</p>
+<p>Tech: {{projectsShow.project.tech}}</p>
+<button ng-if="main.isAuthenticated()" ui-sref="projectsEdit({ id: projectsShow.project.id})">Edit</button>
+    <button ng-if="main.isAuthenticated()" ng-click="projectsShow.delete()">Delete</button>

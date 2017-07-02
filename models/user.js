@@ -1,6 +1,29 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
+const tech =[
+  'JavaScript',
+  'Java',
+  'Python',
+  'Ruby',
+  'C#',
+  'Rails',
+  'C++',
+  'PHP',
+  'SQL',
+  'Android',
+  'AngularJS',
+  'Apache',
+  'Babel',
+  'BackboneJS',
+  'Bootstrap',
+  'Bower',
+  'NPM',
+  'Yarn',
+  'CSS3',
+  'SCSS/SASS'
+];
+
 const userSchema = new mongoose.Schema({
   firstName: { type: String, required: true },
   lastName: { type: String },
@@ -15,18 +38,8 @@ const userSchema = new mongoose.Schema({
   tech: [{type: String, required: true}]
 });
 
-// firstName { String } r
-// lastName { String }//
-// email { String } r
-// password { String } r
-// passwordConfirmation { String } r
-// image { String }//
-// // githubId { Number }//
-// githubUrl { String }//
-// // linkedinId { Number }//
-// linkedinUrl { String }//
-// portfolioUrl { String }//
-// userTech [ Strings ]
+userSchema.statics.tech = tech;
+
 
 userSchema
   .virtual('passwordConfirmation')

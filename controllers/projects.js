@@ -1,8 +1,8 @@
 const Project = require('../models/project');
 
-function newProject(req, res) {
-  return res.render('projects/new', { tech: Project.tech });
-}
+// function newProject(req, res) {//
+//   return res.render('projects/new', { tech: Project.tech });
+// }//
 
 function indexProject(req, res, next){
   Project
@@ -13,6 +13,7 @@ function indexProject(req, res, next){
 }
 
 function createProject(req, res, next){
+  if(req.file) req.body.image = req.file.filename;
   Project
   .create(req.body)
   .then((project) => res.status(201).json(project))
@@ -49,7 +50,9 @@ function updateProject(req, res, next){
   .findById(req.params.id)
   .exec()
   .then((project) => {
+
     if(!project) return res.notFound();
+
 
     for (const field in req.body) {
       project[field] = req.body[field];
@@ -57,12 +60,8 @@ function updateProject(req, res, next){
     }
     return project.save();
   })
-  .then(()=> res.redirect(`/projects/${req.params.id}`))
-  .catch((err) => {
-    if(err.name === 'ValidationError') return res.badRequest(`/projects/${req.params.id}/edit`, err.toString());
-    next(err);
-
-  });
+  .then((project)=> res.json(project))
+  .catch(next);
 }
 
 module.exports = {
@@ -70,6 +69,5 @@ module.exports = {
   create: createProject,
   show: showProject,
   delete: deleteProject,
-  update: updateProject,
-  new: newProject
+  update: updateProject
 };

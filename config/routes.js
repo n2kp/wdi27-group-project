@@ -3,13 +3,14 @@ const projects = require('../controllers/projects');
 const users = require('../controllers/users');
 const auth = require('../controllers/auth');
 // const secureRoute = require('../lib/secureRoute');
+const imageUpload = require('../lib/imageUpload');
 
 router.get('/', (req, res) =>
 res.render('statics/home'));
 
 router.route('/projects')
   .get(projects.index)
-  .post(projects.create);
+  .post(imageUpload, projects.create);
 
 
 router.route('/projects/:id')

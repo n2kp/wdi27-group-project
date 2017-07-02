@@ -4,6 +4,7 @@
     <base href="/">
     <meta charset="utf-8">
     <title>WDI Project 3</title>
+
     <!-- inject:js -->
     <!-- endinject -->
     <!-- inject:css -->
@@ -11,21 +12,21 @@
   </head>
   <body ng-controller="MainCtrl as main" ng-class="main.pageName">
 
-    <a ui-sref="projectsIndex">All Projects</a>
-    <a ui-sref="projectsNew">Add Projects</a>
-    <a ui-sref="login">Login</a>
-    <a ui-sref="register">Register</a>
-    <a ui-sref="usersShow">Profile</a>
-    <a href="#" ng-click="main.logout()">Logout</a>
+    <a ui-sref="projectsIndex" ng-if="main.isAuthenticated()">All Projects</a>
+    <a ui-sref="projectsNew" ng-if="main.isAuthenticated()">Add Projects</a>
+    <a ui-sref="login" ng-if="!main.isAuthenticated()">Login</a>
+    <a ui-sref="register" ng-if="!main.isAuthenticated()">Register</a>
+    <a ui-sref="usersShow({ id: userId })" ng-if="main.isAuthenticated()">Profile</a>
+    <a href="login" ng-click="main.logout()" ng-if="main.isAuthenticated()">Logout</a>
 
 
     <div class ="container">
-      <!-- <div class = "message" ng-if="main.message"> -->
-        <!-- <p>{{main.message}}</p> -->
-      <!-- </div> -->
+      <div class = "message" ng-if="main.message">
+        <p>{{main.message}}</p>
+      </div>
 
       <main ui-view></main>
-      {{2+2}}
+
     </div>
 
   </body>

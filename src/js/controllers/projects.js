@@ -25,10 +25,10 @@ function ProjectsNewCtrl(Project, $state) {
         .then(() => {
           // const payload =$auth.getPayload();
           $state.go('projectsIndex');
-        })
+        });
 
+    }
   }
-}
 
   vm.create = projectsCreate;
 }
@@ -52,13 +52,14 @@ function ProjectsEditCtrl(Project, $stateParams, $state) {
   const vm = this;
 
   vm.project = Project.get($stateParams);
+  console.log(vm.project);
 
   function projectsUpdate() {
-    if(vm.projectForm.$valid) {
+    // if(vm.editForm.$valid) {//
       vm.project
         .$update()
         .then(() => $state.go('projectsShow', $stateParams));
-    }
+    // }//
   }
   vm.update = projectsUpdate;
 }

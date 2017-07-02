@@ -18,8 +18,7 @@ function MainCtrl($rootScope, $state, $auth, $transitions) {
   });
 
   $transitions.onSuccess({}, (transition) => {
-    // vm.navIsOpen = false; // Making the burger menu closed by default on page load
-    vm.pageName = transition.$to().name; // Storing the current state name as a string
+    vm.pageName = transition.$to().name; 
     if(vm.stateHasChanged) vm.message = null;
     if(!vm.stateHasChanged) vm.stateHasChanged = true;
     if($auth.getPayload()) vm.currentUserId = $auth.getPayload().userId;

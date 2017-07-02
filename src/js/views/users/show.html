@@ -1,3 +1,8 @@
 <!DOCTYPE html>
 
 <h1>user profile show</h1>
+<h3>{{usersShow.user.firstName}}</h3>
+<h4>{{usersShow.user.email}}</h4>
+
+<button ng-if="main.isAuthenticated()" ui-sref="usersEdit({ id: usersShow.user.id})">Edit</button>
+    <button ng-if="main.isAuthenticated()" ng-click="usersShow.delete()">Delete</button>

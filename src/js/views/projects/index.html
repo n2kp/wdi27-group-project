@@ -1,7 +1,11 @@
 <!DOCTYPE html>
-<h1>Project show page</h1>
+<h1>Project index page</h1>
 
 
   <div ng-repeat="project in projectsIndex.all" class="col-sm-6 col-md-4 col-lg-3">
-      <p><strong>{{ project.title }}</strong></p>
+        <a ui-sref="projectsShow({ id: project.id })">show link</a>
+        <img ng-src="{{ project.imageSRC }}" alt="">
+      <p><strong>Project title: {{ project.title }}</strong></p>
+      <p>Description: {{ project.description }}</p>
+
     </div>
