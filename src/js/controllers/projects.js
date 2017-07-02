@@ -55,11 +55,11 @@ function ProjectsEditCtrl(Project, $stateParams, $state) {
   console.log(vm.project);
 
   function projectsUpdate() {
-    // if(vm.editForm.$valid) {//
+    if(vm.editForm.$valid) {
       vm.project
         .$update()
         .then(() => $state.go('projectsShow', $stateParams));
-    // }//
+    }
   }
   vm.update = projectsUpdate;
 }

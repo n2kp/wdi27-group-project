@@ -16,7 +16,7 @@ router.route('/projects')
 router.route('/projects/:id')
   .get(projects.show)
   .delete(projects.delete)
-  .post(projects.update);
+  .put(imageUpload, projects.update);
 
 
 router.route('/users/:id')
@@ -26,7 +26,7 @@ router.route('/users/:id')
 
 
 router.route('/register')
-  .post(auth.register);
+  .post(imageUpload, auth.register);
 
 router.route('/login')
   .post(auth.login);
