@@ -61,7 +61,6 @@ function updateProject(req, res, next){
   .catch((err) => {
     if(err.name === 'ValidationError') return res.badRequest(`/projects/${req.params.id}/edit`, err.toString());
     next(err);
-
   });
 }
 

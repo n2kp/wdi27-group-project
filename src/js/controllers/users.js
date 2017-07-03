@@ -11,18 +11,25 @@ function UsersIndexCtrl(User) {
   vm.all = User.query();
 }
 
-UsersShowCtrl.$inject = ['User', '$state'];
-function UsersShowCtrl(User, $state) {
+UsersShowCtrl.$inject = ['User', '$state', '$auth'];
+function UsersShowCtrl(User, $state, $auth) {
   const vm = this;
-  vm.user = User.get($state.params);
-  console.log(vm.user);
+  const { userId } = $auth.getPayload();
 
+  if(userId) vm.user = User.get({ id: userId });
+
+  function logout() {
+    $auth.logout();
+    $state.go('login');
+  }
+  
   function usersDelete() {
     vm.user
       .$remove()
       .then(() => $state.go('usersIndex'));
   }
 
+  vm.logout = logout;
   vm.delete = usersDelete;
 }
 

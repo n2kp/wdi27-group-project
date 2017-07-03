@@ -28,7 +28,7 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       controller: 'ProjectsShowCtrl as projectsShow'
     })
     .state('projectsEdit', {
-      url:'/projects/:id/edit',
+      url: '/projects/:id/edit',
       templateUrl: 'js/views/projects/edit.html',
       controller: 'ProjectsEditCtrl as projectsEdit'
     })
@@ -58,5 +58,5 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       controller: 'UsersEditCtrl as usersEdit'
     });
 
-    $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/');
 }

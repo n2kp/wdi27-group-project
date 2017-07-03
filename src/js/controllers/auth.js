@@ -36,6 +36,12 @@ function LoginCtrl($auth, $state) {
     }
   }
 
+  function authenticate(provider) {
+    $auth.authenticate(provider)
+      .then(() => $state.go('usersShow'));
+  }
+
+  vm.authenticate = authenticate;
   vm.submit = submit;
   console.log(vm.user);
 }
