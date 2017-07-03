@@ -31,7 +31,7 @@ const userSchema = new mongoose.Schema({
   avatar: { type: String },
   githubId: { type: Number },
   githubUrl: { type: String },
-  linkedinId: { type: Number},
+  linkedinId: { type: String},
   linkedinUrl: { type: String },
   portfolioUrl: { type: String },
   tech: [{type: String, required: true}]
@@ -47,7 +47,7 @@ userSchema
   });
 
 userSchema.pre('validate', function checkPassword(next) {
-  if(!this.password && !this.githubId) {
+  if(!this.password && !this.githubId || !this.linkedinId) {
     this.invalidate('password', 'required');
   }
   if(this.isModified('password') && this._passwordConfirmation !== this.password){

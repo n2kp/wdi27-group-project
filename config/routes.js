@@ -31,7 +31,10 @@ router.route('/login')
 
 router.route('/oauth/github')
   .post(oauth.github);
-  
+
+router.route('/oauth/linkedin')
+  .post(oauth.linkedin);
+
 router.all('/*', (req, res) => res.notFound());
 
 module.exports = router;

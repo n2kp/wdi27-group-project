@@ -37,7 +37,6 @@ function github(req, res, next) {
         }
 
         user.githubId = profile.id;
-        user.image = profile.avatar_url;
         return user.save();
       });
   })
@@ -55,6 +54,59 @@ function github(req, res, next) {
   .catch(next);
 }
 
+function linkedin(req, res, next) {
+  return rp({
+    method: 'POST',
+    url: oauth.linkedin.accessTokenURL,
+    qs: {
+      grant_type: 'authorization_code',
+      code: req.body.code,
+      redirect_uri: oauth.linkedin.redirect_uri,
+      client_id: oauth.linkedin.client_id,
+      client_secret: oauth.linkedin.client_secret
+    },
+    json: true
+  })
+  .then((token) => {
+    console.log(token);
+    return rp({
+      method: 'GET',
+      url: 'https://api.linkedin.com/v1/people/~?format=json',
+      qs: token,
+      json: true,
+      headers: {
+        'Authorization': `Bearer ${token.access_token}`
+      }
+    });
+  })
+  .then((profile) => {
+    console.log(profile);
+    return User.findOne({ $or: [{ linkedinId: profile.id }, { email: profile.email }] })
+      .then((user) => {
+        if(!user) {
+          user = new User({
+            username: profile.login,
+            email: profile.email
+          });
+        }
+
+        user.linkedinId = profile.id;
+        return user.save();
+      });
+  })
+  .then((user) => {
+    const payload = { userId: user.id };
+    const token = jwt.sign(payload, secret, { expiresIn: '1hr' });
+
+    return res.json({
+      token,
+      message: `Welcome back ${user.username}`
+    });
+  })
+  .catch(next);
+}
+
 module.exports = {
-  github
+  github,
+  linkedin
 };
