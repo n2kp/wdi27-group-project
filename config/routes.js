@@ -5,6 +5,7 @@ const auth = require('../controllers/auth');
 const oauth = require('../controllers/oauth');
 // const secureRoute = require('../lib/secureRoute');
 const imageUpload = require('../lib/imageUpload');
+const eventbrite = require('../controllers/eventbrite');
 
 router.get('/', (req, res) =>
 res.render('statics/home'));
@@ -31,7 +32,10 @@ router.route('/login')
 
 router.route('/oauth/github')
   .post(oauth.github);
-  
+
+router.get('/events', eventbrite.events);
+
+
 router.all('/*', (req, res) => res.notFound());
 
 module.exports = router;
