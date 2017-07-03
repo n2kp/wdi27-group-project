@@ -2,8 +2,6 @@
 
 <h1>user profile show</h1>
 
-<h2>{{ user.user.username }}</h2>
-<a href="mailto:{{ user.user.email }}" ng-if="user.user.email">{{ user.user.email }}</a>
-<p>Github Id: <strong>{{ user.user.githubId }}</strong></p>
-
-<button ng-click="profile.logout()">Logout</button>
+<h2>Username:{{ usersShow.user.username }}</h2>
+<a href="mailto:{{ usersShow.user.email }}" ng-if="usersShow.user.email">{{ usersShow.user.email }}</a>
+<p>Github Id: <strong>{{ usersShow.user.githubId }}</strong></p>

@@ -38,7 +38,10 @@ function LoginCtrl($auth, $state) {
 
   function authenticate(provider) {
     $auth.authenticate(provider)
-      .then(() => $state.go('usersShow'));
+      .then(() => {
+        const payload = $auth.getPayload();
+        $state.go('usersShow', { id: payload.userId });
+      });
   }
 
   vm.authenticate = authenticate;
