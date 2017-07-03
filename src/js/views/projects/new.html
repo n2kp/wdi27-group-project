@@ -53,6 +53,18 @@
       </div>
     </div>
 
+<!-- trying to implement angular-ui-select -->
+
+<ui-select ng-model="selected.value">
+    <ui-select-match>
+        <span ng-bind="$select.selected.name"></span>
+    </ui-select-match>
+    <ui-select-choices repeat="item in (itemArray | filter: $select.search) track by item.id">
+        <span ng-bind="item.name"></span>
+    </ui-select-choices>
+</ui-select>
+
+<!-- end of feature -->
 
     <div class="form-group row">
       <div class="offset-sm-2 col-sm-10">
@@ -60,6 +72,8 @@
       </div>
     </div>
   </div>
+
+
 
   </form>
 </div>
