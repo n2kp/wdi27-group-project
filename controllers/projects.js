@@ -60,8 +60,16 @@ function updateProject(req, res, next){
     }
     return project.save();
   })
+<<<<<<< HEAD
   .then((project)=> res.json(project))
   .catch(next);
+=======
+  .then(()=> res.redirect(`/projects/${req.params.id}`))
+  .catch((err) => {
+    if(err.name === 'ValidationError') return res.badRequest(`/projects/${req.params.id}/edit`, err.toString());
+    next(err);
+  });
+>>>>>>> development
 }
 
 module.exports = {
