@@ -1,6 +1,8 @@
 <h1>Project Edit form</h1>
 <div class="container">
-  <form ng-submit="projectsEdit.update()" name="projectsEdit.editForm" novalidate>
+  <form ng-submit="projectsEdit.update()" name="projectsEdit.editForm" novalidate >
+    <div class="col-lg-6">
+
 
     <div class="form-group row">
       <label for="title" class="col-sm-2 col-form-label">Project Title</label>
@@ -10,25 +12,14 @@
           <div class="notification" ng-message="required">Please add a title</div>
         </div>
       </div>
-
     </div>
+
     <div class="form-group row">
       <label for="description" class="col-sm-2 col-form-label">Project Description</label>
       <div class="col-sm-10">
         <textarea class="form-control" id="description" ng-model="projectsEdit.project.description" required></textarea>
         <div ng-messages="projectsEdit.editForm.description.$error" ng-show="projectsEdit.editForm.description.$submitted || projectsEdit.editForm.description.$touched">
           <div class="notification" ng-message="required">Please add a description</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="form-group row">
-      <label for="image" class="col-sm-2 col-form-label">Image Url</label>
-      <div class="col-sm-10">
-        <input basae64 type="file" class="form-control" id="image" ng-model="projectsEdit.project.base64" name="base64" required>
-        <img ng-src="{{projectsEdit.project.base64}}" alt="">
-        <div ng-messages="projectsEdit.editForm.image.$error" ng-show="projectsEdit.editForm.$submitted ||projectsEdit.editForm.image.$touched">
-          <div class="notification" ng-message="required">Please add image url</div>
         </div>
       </div>
     </div>
@@ -42,12 +33,24 @@
         </div>
       </div>
     </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="form-group row">
+        <label for="image" class="col-sm-2 col-form-label">Image Url</label>
+        <div class="col-sm-10">
+          <input base64 type="file" class="form-control" id="image" ng-model="projectsEdit.project.base64" name="base64" required>
+          <img ng-src="{{projectsEdit.project.base64}}" alt="">
+          <div ng-messages="projectsEdit.editForm.image.$error" ng-show="projectsEdit.editForm.$submitted ||projectsEdit.editForm.image.$touched">
+            <div class="notification" ng-message="required">Please add image url</div>
+          </div>
+        </div>
+      </div>
 
-    <div class="form-group row">
-      <div class="offset-sm-2 col-sm-10">
-        <input type="submit" value="Submit Changes">
+      <div class="form-group row">
+        <div class="offset-sm-2 col-sm-10">
+          <input type="submit" class="btn" value="Submit Changes">
+        </div>
       </div>
     </div>
-
   </form>
 </div>

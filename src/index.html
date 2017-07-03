@@ -16,7 +16,7 @@
     <a ui-sref="projectsNew" ng-if="main.isAuthenticated()">Add Projects</a>
     <a ui-sref="login" ng-if="!main.isAuthenticated()">Login</a>
     <a ui-sref="register" ng-if="!main.isAuthenticated()">Register</a>
-    <a ui-sref="usersShow({ id: user.id })" ng-if="main.isAuthenticated()">Profile</a>
+    <a ui-sref="usersShow({id: user.id}) " ng-if="main.isAuthenticated()">Profile</a>
     <a href="login" ng-click="main.logout()" ng-if="main.isAuthenticated()">Logout</a>
 
 

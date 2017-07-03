@@ -21,12 +21,12 @@ router.route('/projects/:id')
 
 router.route('/users/:id')
   .get(users.show)
-  .put(users.update)
+  .put(imageUpload, users.update)
   .delete(users.delete);
 
 
 router.route('/register')
-  .post(imageUpload, auth.register);
+  .post(auth.register);
 
 router.route('/login')
   .post(auth.login);

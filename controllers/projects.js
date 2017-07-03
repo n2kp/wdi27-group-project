@@ -50,7 +50,7 @@ function updateProject(req, res, next){
   .findById(req.params.id)
   .exec()
   .then((project) => {
-
+    console.log('project to be added', project);
     if(!project) return res.notFound();
 
 
