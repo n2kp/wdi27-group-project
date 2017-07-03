@@ -6,5 +6,11 @@ module.exports = {
     clientId: process.env.GITHUB_CLIENT_ID,
     clientSecret: process.env.GITHUB_CLIENT_SECRET,
     scope: 'user:email'
+  },
+  linkedin: {
+    loginURL: 'https://www.linkedin.com/oauth/v2/authorization',
+    response_type: 'code',
+    client_id: process.env.LINKEDIN_CLIENT_ID,
+    state: '1608CnA1904mPm1204'
   }
 };
