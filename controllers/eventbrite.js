@@ -6,8 +6,6 @@ function events(req, res) {
   // const dateStart = new Date();
   // const dateEnd = new Date( dateStart );
   // dateEnd.setHours = ( dateStart.getHours() + 3);
-  // console.log(dateStart);
-  // console.log(dateEnd);
 
   request({
     method: 'GET',
