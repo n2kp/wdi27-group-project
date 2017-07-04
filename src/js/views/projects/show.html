@@ -8,7 +8,6 @@
   <li ng-repeat="tech in projectsShow.project.tech" class="{{tech.toLowerCase()}}">
     Tech: {{tech}}
     <span><i class="icon-{{tech.toLowerCase()}}"></i></span>
-
   </li>
 </ul>
 <a ui-sref="usersShow({ id:projectsShow.project.createdBy.id })"><p>createdBy:{{projectsShow.project.createdBy.username}}</p></a>
