@@ -4,6 +4,7 @@ angular
 
 let latitude = '';
 let longitude = '';
+var infoWindow;
 googleMap.$inject=['eventsService'];
 function googleMap(eventsService) {
   return {
@@ -34,7 +35,7 @@ function googleMap(eventsService) {
           center: latLng
         });
 
-        new google.maps.Marker({
+        marker = new google.maps.Marker({
           map,
           position: latLng
         });
@@ -49,10 +50,10 @@ function googleMap(eventsService) {
 
               marker = new google.maps.Marker({
                 map,
-                position: event.location
-                
+                position: event.location,
+
               });
-            })
+            });
           });
       }
     }
