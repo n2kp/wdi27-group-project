@@ -1,5 +1,5 @@
 //
-// @import 'vendor/font-mfizz-2.4.1/font-mfizz.css';
+// @import 'vendor/font-mfizz/font-mfizz.scss';
 //
 // // Import all of your scss files here
 //
@@ -140,4 +140,8 @@
   background-color: ghostwhite;
   width: 75%;
   float: right;
+}
+
+i {
+  font-size: 60px;
 }

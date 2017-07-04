@@ -18,12 +18,12 @@ const userSchema = new mongoose.Schema({
 userSchema
   .virtual('percentageComplete')
   .get(function getPercentageComplete() {
-    let value = 0;
-    const requiredFields = ['email', 'avatar', 'githubUrl', 'linkedinUrl', 'portfolioUrl'];
+    let value = 10;
+    const requiredFields = ['email', 'avatar', 'githubUrl', 'linkedinUrl', 'portfolioUrl','tech'];
 
     for(let i = 0; i < requiredFields.length; i++) {
-      if(this[requiredFields[i]]) value+=20;
-      console.log(value);
+      if(this[requiredFields[i]]) value+=18;
+    
     }
     return value;
   });

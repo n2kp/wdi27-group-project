@@ -6,8 +6,9 @@
 <div class="modal-body">
   <p>Are you sure you want to delete your profile?</p>
   <p>This action is irreversible</p>
+  <p>Please don't leave us, we'll miss you too much!!</p>
 </div>
 <div class="modal-footer">
-  <button class="btn btn-primary">Cancel</button>
-  <button class="btn btn-danger">Delete</button>
+  <button class="btn btn-primary" ng-click="usersDelete.closeModal()">Cancel</button>
+  <button class="btn btn-danger" ng-click="usersDelete.delete()">Delete</button>
 </div>

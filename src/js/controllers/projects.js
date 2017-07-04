@@ -4,14 +4,35 @@ angular
   .controller('ProjectsNewCtrl', ProjectsNewCtrl)
   .controller('ProjectsShowCtrl', ProjectsShowCtrl)
   .controller('ProjectsEditCtrl', ProjectsEditCtrl)
-  .controller('ProjectDeleteCtrl', ProjectDeleteCtrl);
+  .controller('ProjectsDeleteCtrl', ProjectsDeleteCtrl);
 
-ProjectsIndexCtrl.$inject = ['Project'];
-function ProjectsIndexCtrl(Project) {
+ProjectsIndexCtrl.$inject = ['Project', 'filterFilter', '$scope'];
+function ProjectsIndexCtrl(Project, filterFilter, $scope) {
   const vm = this;
 
-  vm.all = Project.query();
+  Project.query()
+  .$promise
+  .then((projects) => {
+    vm.all = projects;
+    filterProject();
+  });
+
+  function filterProject() {
+    const params = { tech: vm.q };
+    vm.filtered = filterFilter(vm.all, params);
+
+  }
+
+
+
+  $scope.$watchGroup([
+    () => vm.q,
+
+    () => vm.tech
+  ], filterProject);
 }
+
+
 
 ProjectsNewCtrl.$inject = ['Project', '$state'];
 function ProjectsNewCtrl(Project, $state) {
@@ -60,14 +81,6 @@ function ProjectsShowCtrl(Project, $state, $uibModal, User, $auth) {
   vm.like = like;
 
 
-  // function projectsDelete() {
-  //   vm.project
-  //     .$remove()
-  //     .then(() => $state.go('projectsIndex'));
-  // }
-  //
-  // vm.delete = projectsDelete;
-
   function openModal() {
     $uibModal.open({
       templateUrl: 'js/views/partials/projectDeleteModal.html',
@@ -102,8 +115,8 @@ function ProjectsEditCtrl(Project, $stateParams, $state) {
   vm.update = projectsUpdate;
 }
 
-ProjectDeleteCtrl.$inject = ['$uibModalInstance', 'bird', '$state'];
-function ProjectDeleteCtrl($uibModalInstance, project, $state) {
+ProjectsDeleteCtrl.$inject = ['$uibModalInstance', 'project', '$state'];
+function ProjectsDeleteCtrl($uibModalInstance, project, $state) {
   const vm = this;
   vm.project = project;
 

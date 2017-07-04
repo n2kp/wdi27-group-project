@@ -15,7 +15,6 @@ function createProject(req, res, next){
   if(req.file) req.body.image = req.file.filename;
 
   req.body.createdBy = req.user;
-  console.log(req.user);
 
   Project
   .create(req.body)
@@ -55,7 +54,6 @@ function updateProject(req, res, next){
   .findById(req.params.id)
   .exec()
   .then((project) => {
-    console.log('project to be added', project);
     if(!project) return res.notFound();
 
 

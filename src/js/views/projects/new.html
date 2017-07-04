@@ -16,7 +16,7 @@
     <div class="form-group row">
       <label for="description" class="col-sm-2 col-form-label">Project Description</label>
       <div class="col-sm-10">
-        <textarea class="form-control" id="description" ng-model="projectsNew.project.description" required></textarea>
+        <textarea class="form-control" id="description" ng-model="projectsNew.project.description" maxlength="500" required></textarea>
         <div ng-messages="projectsNew.newForm.description.$error" ng-show="projectsNew.newForm.description.$submitted || projectsNew.newForm.description.$touched">
           <div class="notification" ng-message="required">Please add a description</div>
         </div>
