@@ -1,10 +1,12 @@
 angular
-  .module('projectApp')
-  .directive('googleMap', googleMap);
+.module('projectApp')
+.directive('googleMap', googleMap);
 
+let map = null;
 let latitude = '';
 let longitude = '';
-var infoWindow;
+var infowindow = null;
+var markers = [];
 googleMap.$inject=['eventsService'];
 function googleMap(eventsService) {
   return {
@@ -41,21 +43,40 @@ function googleMap(eventsService) {
         });
 
         eventsService
-          .getEvents(parseFloat(position.coords.latitude), parseFloat(position.coords.longitude))
-          .then((events) => {
-            scope.events = events;
-            // loop through events and add marker for each
+        .getEvents(parseFloat(position.coords.latitude), parseFloat(position.coords.longitude))
+        .then((events) => {
+          scope.events = events;
+          // loop through events and add marker for each
 
-            events.forEach((event) =>{
-
-              marker = new google.maps.Marker({
-                map,
-                position: event.location,
-
-              });
-            });
+          events.forEach((event) =>{
+            addMarker(event);
           });
-      }
+          function addMarker(event){
+            const marker = new google.maps.Marker({
+              position: event.location,
+              map
+            });
+
+          marker.addListener('click', () => {
+            console.log('clicked');
+            markerClick(marker, events);
+          });
+
+          function markerClick(marker, events){
+            console.log('click inside marker click');
+            if(infowindow) infowindow.close();
+            const eventAPI = event;
+            console.log(eventAPI);
+
+            infowindow = new google.maps.InfoWindow({
+              content: `${eventAPI.name}`
+            });
+
+            infowindow.open(map,marker);
+          }
+          }
+        });
+      };
     }
   };
 }
