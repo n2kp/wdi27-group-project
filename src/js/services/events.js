@@ -4,9 +4,9 @@ angular
 
 EventsService.$inject = ['$http'];
 function EventsService($http){
-  this.getEvents = function getEvents() {
+  this.getEvents = function getEvents(lat, lng) {
     return $http
-      .get('/api/events')
+      .get('/api/events', {params: { lat, lng }})
       .then((response) => {
         return response.data.map(event => {
           return {
@@ -20,5 +20,5 @@ function EventsService($http){
         });
       });
 
-  }
+  };
 }

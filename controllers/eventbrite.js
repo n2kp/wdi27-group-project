@@ -15,8 +15,8 @@ function events(req, res) {
     qs: {
       price: 'free',
       categories: 102,
-      'location.latitude': 51.5148496,
-      'location.longitude': -0.0751596,
+      'location.latitude': req.query.lat,
+      'location.longitude': req.query.lng,
       'location.within': '15km',
       expand: 'venue',
       token: process.env.EVENTBRITE_API_KEY
