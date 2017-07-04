@@ -26,3 +26,13 @@
 <button ng-if="main.isAuthenticated() && main.currentUserId === projectsShow.project.createdBy.id " ui-sref="projectsEdit({ id: projectsShow.project.id})">Edit</button>
 
 <button ng-if="main.isAuthenticated() && main.currentUserId === projectsShow.project.createdBy.id" ng-click="projectsShow.open()">Delete</button>
+
+
+<table class="table">
+  <tbody>
+    <tr>
+      <th ng-repeat="tech in projectsShow.project.tech"><i class="icon-{{ tech.toLowerCase() }}"></i></th>
+      <td>{{tech}}</td>
+    </tr>
+  </tbody>
+</table>

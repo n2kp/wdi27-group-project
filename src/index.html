@@ -8,6 +8,7 @@
     <title>WDI Project 3</title>
     <link href="https://fonts.googleapis.com/css?family=Quicksand|Raleway:200" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-mfizz/2.4.1/font-mfizz.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDs_jyxXu7PGnWJz9uYx-dwJ4mmmaM3sF8"></script>
     <!-- inject:js -->
     <!-- endinject -->
@@ -18,20 +19,6 @@
 
   <body ng-controller="MainCtrl as main" ng-class="main.pageName" class="container">
 
-    <!-- <div class="openedNav">
-      <span id="menu-toggle" ng-class="{ 'open': main.menuIsOpen }"></span>
-      <span id="trigger" for="menu-toggle" ng-click="main.menuIsOpen = !main.menuIsOpen"></span>
-      <span id="burger" for="menu-toggle" ng-click="main.menuIsOpen = !main.menuIsOpen"></span> -->
-      <!-- <ul id="menu">
-        <li><a ui-sref="projectsIndex" ng-if="main.isAuthenticated()">All Projects</a></li>
-        <li><a ui-sref="projectsNew" ng-if="main.isAuthenticated()">Add Projects</a></li>
-        <li><a ui-sref="events" ng-if="main.isAuthenticated()">Events</a></li>
-        <li><a ui-sref="login" ng-if="!main.isAuthenticated()">Login</a></li>
-        <li><a ui-sref="register" ng-if="!main.isAuthenticated()">Register</a></li>
-        <li><a ui-sref="usersShow({id: main.currentUserId }) " ng-if="main.isAuthenticated()">Profile</a></li>
-        <li><a href="login" ng-click="main.logout()" ng-if="main.isAuthenticated()">Logout</a></li>
-      </ul>
-    </div> -->
 
     <ul class="nav nav-tabs">
       <li class="nav-item">
@@ -56,14 +43,6 @@
         <a class="nav-link" href="login" ng-click="main.logout()" ng-if="main.isAuthenticated()">Logout</a>
       </li>
     </ul>
-
-
-    <!-- <a ui-sref="projectsIndex" ng-if="main.isAuthenticated()">All Projects</a>
-    <a ui-sref="projectsNew" ng-if="main.isAuthenticated()">Add Projects</a>
-    <a ui-sref="login" ng-if="!main.isAuthenticated()">Login</a>
-    <a ui-sref="register" ng-if="!main.isAuthenticated()">Register</a>
-    <a ui-sref="usersShow({id: main.currentUserId }) " ng-if="main.isAuthenticated()">Profile</a>
-    <a href="login" ng-click="main.logout()" ng-if="main.isAuthenticated()">Logout</a> -->
 
     <div class ="container main-container">
       <div class="message" ng-if="main.message">
