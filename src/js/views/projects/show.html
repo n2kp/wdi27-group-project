@@ -14,4 +14,4 @@
 <a ui-sref="usersShow({ id:projectsShow.project.createdBy.id })"><p>createdBy:{{projectsShow.project.createdBy.username}}</p></a>
 <!-- <a href="mailto:{{ usersShow.user.email }}" ng-if="usersShow.user.email">{{ usersShow.user.email }}</a> -->
 <button ng-if="main.isAuthenticated() && main.currentUserId === projectsShow.project.createdBy" ui-sref="projectsEdit({ id: projectsShow.project.id})">Edit</button>
-    <button ng-if="main.isAuthenticated() && main.currentUserId === projectsShow.project.createdBy" ng-click="projectsShow.delete()">Delete</button>
+    <button ng-if="main.isAuthenticated() && main.currentUserId === projectsShow.project.createdBy" ng-click="projectsShow.openModal()">Delete</button>

@@ -57,7 +57,7 @@ userSchema
   });
 
 userSchema.pre('validate', function checkPassword(next) {
-  if(!this.password && !this.githubId || !this.linkedinId) {
+  if(!this.password && !this.githubId && !this.linkedinId) {
     this.invalidate('password', 'required');
   }
   if(this.isModified('password') && this._passwordConfirmation !== this.password){

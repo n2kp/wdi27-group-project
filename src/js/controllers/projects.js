@@ -3,7 +3,8 @@ angular
   .controller('ProjectsIndexCtrl', ProjectsIndexCtrl)
   .controller('ProjectsNewCtrl', ProjectsNewCtrl)
   .controller('ProjectsShowCtrl', ProjectsShowCtrl)
-  .controller('ProjectsEditCtrl', ProjectsEditCtrl);
+  .controller('ProjectsEditCtrl', ProjectsEditCtrl)
+  .controller('ProjectDeleteCtrl', ProjectDeleteCtrl);
 
 ProjectsIndexCtrl.$inject = ['Project'];
 function ProjectsIndexCtrl(Project) {
@@ -17,16 +18,13 @@ function ProjectsNewCtrl(Project, $state) {
   const vm = this;
   vm.project = {};
 
-
-
-
   function projectsCreate() {
     if(vm.newForm.$valid) {
       Project
         .save(vm.project)
         .$promise
         .then(() => {
-      
+
           $state.go('projectsIndex');
         });
 
@@ -36,18 +34,32 @@ function ProjectsNewCtrl(Project, $state) {
   vm.create = projectsCreate;
 }
 
-ProjectsShowCtrl.$inject = ['Project', '$state'];
-function ProjectsShowCtrl(Project, $state) {
+ProjectsShowCtrl.$inject = ['Project', '$state', '$uibModal'];
+function ProjectsShowCtrl(Project, $state, $uibModal) {
   const vm = this;
   vm.project = Project.get($state.params);
 
-  function projectsDelete() {
-    vm.project
-      .$remove()
-      .then(() => $state.go('projectsIndex'));
+  // function projectsDelete() {
+  //   vm.project
+  //     .$remove()
+  //     .then(() => $state.go('projectsIndex'));
+  // }
+  //
+  // vm.delete = projectsDelete;
+
+  function openModal() {
+    $uibModal.open({
+      templateUrl: 'js/views/partials/projectDeleteModal.html',
+      controller: 'ProjectsDeleteCtrl as projectsDelete',
+      resolve: {
+        project: () => {
+          return vm.project;
+        }
+      }
+    });
   }
 
-  vm.delete = projectsDelete;
+  vm.open = openModal;
 }
 
 ProjectsEditCtrl.$inject = ['Project', '$stateParams', '$state'];
@@ -65,4 +77,27 @@ function ProjectsEditCtrl(Project, $stateParams, $state) {
     }
   }
   vm.update = projectsUpdate;
+}
+
+ProjectDeleteCtrl.$inject = ['$uibModalInstance', 'bird', '$state'];
+function ProjectDeleteCtrl($uibModalInstance, project, $state) {
+  const vm = this;
+  vm.project = project;
+
+  function closeModal() {
+    $uibModalInstance.close();
+  }
+
+  vm.closeModal = closeModal;
+
+  function projectsDelete() {
+    vm.project
+    .$remove()
+    .then(() => {
+      $state.go('projectsIndex');
+      $uibModalInstance.close();
+    });
+  }
+
+  vm.delete = projectsDelete;
 }

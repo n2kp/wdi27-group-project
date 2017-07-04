@@ -16,9 +16,9 @@
     <link href="https://fonts.googleapis.com/css?family=Quicksand|Raleway:200" rel="stylesheet">
   </head>
 
-  <body ng-controller="MainCtrl as main" ng-class="main.pageName">
+  <body ng-controller="MainCtrl as main" ng-class="main.pageName" class="container">
 
-    <div class="openedNav">
+    <!-- <div class="openedNav">
       <span id="menu-toggle" ng-class="{ 'open': main.menuIsOpen }"></span>
       <span id="trigger" for="menu-toggle" ng-click="main.menuIsOpen = !main.menuIsOpen"></span>
       <span id="burger" for="menu-toggle" ng-click="main.menuIsOpen = !main.menuIsOpen"></span>
@@ -31,7 +31,32 @@
         <li><a ui-sref="usersShow({id: main.currentUserId }) " ng-if="main.isAuthenticated()">Profile</a></li>
         <li><a href="login" ng-click="main.logout()" ng-if="main.isAuthenticated()">Logout</a></li>
       </ul>
-    </div>
+    </div> -->
+
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link" ui-sref="projectsIndex" ng-if="main.isAuthenticated()">Project Index</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" ui-sref="projectsNew" ng-if="main.isAuthenticated()">Add Project</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" ui-sref="events" ng-if="main.isAuthenticated()">Events</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" ui-sref="login" ng-if="!main.isAuthenticated()">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" ui-sref="register" ng-if="!main.isAuthenticated()">Register</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" ui-sref="usersShow({id: main.currentUserId })" ng-if="main.isAuthenticated()">Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="login" ng-click="main.logout()" ng-if="main.isAuthenticated()">Logout</a>
+      </li>
+    </ul>
+
 
     <!-- <a ui-sref="projectsIndex" ng-if="main.isAuthenticated()">All Projects</a>
     <a ui-sref="projectsNew" ng-if="main.isAuthenticated()">Add Projects</a>
