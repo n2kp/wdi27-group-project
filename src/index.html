@@ -18,10 +18,10 @@
 
   <body ng-controller="MainCtrl as main" ng-class="main.pageName">
 
-    <div class="openedNav">
+    <!-- <div class="openedNav">
       <span id="menu-toggle" ng-class="{ 'open': main.menuIsOpen }"></span>
       <span id="trigger" for="menu-toggle" ng-click="main.menuIsOpen = !main.menuIsOpen"></span>
-      <span id="burger" for="menu-toggle" ng-click="main.menuIsOpen = !main.menuIsOpen"></span>
+      <span id="burger" for="menu-toggle" ng-click="main.menuIsOpen = !main.menuIsOpen"></span> -->
       <ul id="menu">
         <li><a ui-sref="projectsIndex" ng-if="main.isAuthenticated()">All Projects</a></li>
         <li><a ui-sref="projectsNew" ng-if="main.isAuthenticated()">Add Projects</a></li>
@@ -31,7 +31,7 @@
         <li><a ui-sref="usersShow({id: main.currentUserId }) " ng-if="main.isAuthenticated()">Profile</a></li>
         <li><a href="login" ng-click="main.logout()" ng-if="main.isAuthenticated()">Logout</a></li>
       </ul>
-    </div>
+    <!-- </div> -->
 
     <!-- <a ui-sref="projectsIndex" ng-if="main.isAuthenticated()">All Projects</a>
     <a ui-sref="projectsNew" ng-if="main.isAuthenticated()">Add Projects</a>

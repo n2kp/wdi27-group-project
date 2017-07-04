@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 
 <h1>user profile show</h1>
-<!-- <small><em>Object (changes type based on value)</em></small> -->
-<uib-progressbar class="progress-striped active" value="{{dynamic}}" max="100" animatate="true" type="{{type}}">{{type}} <i ng-show="showWarning">!!! Watch out !!!</i></uib-progressbar>
+
+    <uib-progressbar animate="true" value="usersShow.user.percentageComplete" type="success" max="100"><b>{{usersShow.user.percentageComplete}} %</b></uib-progressbar>
+
 {{ usersShow.user.percentageComplete }}% complete
 <h2>Username:{{ usersShow.user.username }}</h2>
 <h4>{{usersShow.user.email}}</h4>
 <!-- <a href="mailto:{{ usersShow.user.email }}" ng-if="usersShow.user.email">{{ usersShow.user.email }}</a> -->
 <p>Github Url: <strong>{{ usersShow.user.githubUrl }}</strong></p>
-<button ng-if="main.isAuthenticated() && main.currentUserId === usersShow.user.createdBy.id" ui-sref="usersEdit({ id: usersShow.user.id})">Edit</button>
-    <button ng-if="main.isAuthenticated() && main.currentUserId === usersShow.user.createdBy.id" ng-click="usersShow.delete()">Delete</button>
+<button ng-if="main.isAuthenticated() && main.currentUserId === usersShow.user.id" ui-sref="usersEdit({ id: usersShow.user.id})">Edit</button>
+    <button ng-if="main.isAuthenticated() && main.currentUserId === usersShow.user.id" ng-click="usersShow.delete()">Delete</button>

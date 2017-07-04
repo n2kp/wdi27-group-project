@@ -8,12 +8,9 @@ angular
 UsersShowCtrl.$inject = ['User', '$state', '$auth'];
 function UsersShowCtrl(User, $state, $auth) {
   const vm = this;
-  // const { userId } = $auth.getPayload();
-  //
-  // if(userId) vm.user = User.get({ id: userId });
 
   vm.user = User.get($state.params);
-
+  console.log(vm.user);
   function logout() {
     $auth.logout();
     $state.go('login');

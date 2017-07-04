@@ -18,35 +18,18 @@ const userSchema = new mongoose.Schema({
 userSchema
   .virtual('percentageComplete')
   .get(function getPercentageComplete() {
-    const vm = this;
-    let type;
-    let score = 0;
+    let value = 0;
     const requiredFields = ['email', 'avatar', 'githubUrl', 'linkedinUrl', 'portfolioUrl'];
 
     for(let i = 0; i < requiredFields.length; i++) {
-      if(this[requiredFields[i]]) score+=20;
+      if(this[requiredFields[i]]) value+=20;
+      console.log(value);
     }
-    // do some maths
-    const value = score;
-    // return value;
-    function changeProgressBar() {
-      if (value < 25) {
-        type = 'Fill out more';
-      } else if (value < 50) {
-        type = 'about half way';
-      } else if (value < 75) {
-        type = 'almost done';
-      } else {
-        type = 'finished';
-      }
-
-      vm.showWarning = type === 'danger' || type === 'warning';
-
-      vm.dynamic = value;
-      vm.type = type;
-    }
-    changeProgressBar();
+    return value;
   });
+
+
+
 
 
 
@@ -57,7 +40,7 @@ userSchema
   });
 
 userSchema.pre('validate', function checkPassword(next) {
-  if(!this.password && !this.githubId || !this.linkedinId) {
+  if(!this.password && !this.githubId && !this.linkedinId) {
     this.invalidate('password', 'required');
   }
   if(this.isModified('password') && this._passwordConfirmation !== this.password){
