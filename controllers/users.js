@@ -13,6 +13,9 @@ function showRoute(req, res, next) {
 }
 
 function updateRoute(req, res, next) {
+
+  if(req.file) req.body.avatar = req.file.filename;
+
   User
     .findById(req.params.id)
     .exec()
