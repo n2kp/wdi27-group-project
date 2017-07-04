@@ -1,1 +1,137 @@
+
 @import 'vendor/font-mfizz-2.4.1/font-mfizz.css';
+
+// Import all of your scss files here
+
+// font-family: 'Raleway', sans-serif;
+// font-family: 'Quicksand', sans-serif;
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
+
+@keyframes checked-anim {
+    50% {
+        width: 3000px;
+        height: 3000px;
+    }
+    100% {
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
+}
+
+@keyframes not-checked-anim {
+    0% {
+        width: 3000px;
+        height: 3000px;
+    }
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+
+    background-image: url('http://cdn.wallpapersafari.com/49/2/eEQzwl.jpg');
+    overflow: hidden;
+    color: #1985A1;
+    font-family: 'Raleway', sans-serif;
+
+}
+
+li, a {
+    margin: 75px 0 -55px 0;
+    color: #C5C3C6;
+    font-weight: 700;
+    line-height: 1.8;
+    text-decoration: none;
+    text-transform: none;
+    list-style: none;
+    outline: 0;
+    display: none;
+}
+
+li {
+    width: 230px;
+    text-indent: 56px;}
+a:focus {
+    display: block;
+    color: #333;
+    background-color: #8ACB88;
+    transition: all .5s;
+}
+
+.openedNav {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+#trigger, #burger, #burger:before, #burger:after {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    background: #1985A1;
+    width: 30px;
+    height: 5px;
+    transition: .2s ease;
+    cursor: pointer;
+    z-index: 1;
+}
+#trigger {
+    height: 25px;
+    background: none;
+}
+#burger:before {
+    content: " ";
+    top: 10px;
+    left: 0;
+}
+#burger:after {
+    content: " ";
+    top: 20px;
+    left: 0;
+}
+#menu-toggle.open + #trigger + #burger {
+    top: 35px;
+    transform: rotate(180deg);
+    transition: transform .2s ease;
+}
+
+#menu-toggle.open + #trigger + #burger:before {
+    width: 20px;
+    top: -2px;
+    left: 18px;
+    transform: rotate(45deg) translateX(-5px);
+    transition: transform .2s ease;
+}
+#menu-toggle.open + #trigger + #burger:after {
+    width: 20px;
+    top: 2px;
+    left: 18px;
+    transform: rotate(-45deg) translateX(-5px);
+    transition: transform .2s ease;
+}
+#menu {
+    position: absolute;
+    margin: 0; padding: 0;
+    width: 100px;
+    height: 100px;
+    background-color: #FE5F55;
+    border-bottom-right-radius: 100%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.26);
+    animation: not-checked-anim .2s both;
+    transition: .2s;
+}
+#menu-toggle.open + #trigger + #burger + #menu {
+    animation: checked-anim 1s ease both;
+}
+#menu-toggle.open + #trigger ~ #menu > li, a {
+    display: block;
+}
+
+.main-controller {
+  margin-top: 100px;
+}

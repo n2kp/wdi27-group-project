@@ -1,5 +1,7 @@
 <!DOCTYPE html>
+
 <html ng-app="projectApp">
+
   <head>
     <base href="/">
     <meta charset="utf-8">
@@ -11,25 +13,42 @@
     <!-- endinject -->
     <!-- inject:css -->
     <!-- endinject -->
+    <link href="https://fonts.googleapis.com/css?family=Quicksand|Raleway:200" rel="stylesheet">
   </head>
+
   <body ng-controller="MainCtrl as main" ng-class="main.pageName">
 
-    <a ui-sref="projectsIndex" ng-if="main.isAuthenticated()">All Projects</a>
+    <div class="openedNav">
+      <span id="menu-toggle" ng-class="{ 'open': main.menuIsOpen }"></span>
+      <span id="trigger" for="menu-toggle" ng-click="main.menuIsOpen = !main.menuIsOpen"></span>
+      <span id="burger" for="menu-toggle" ng-click="main.menuIsOpen = !main.menuIsOpen"></span>
+      <ul id="menu">
+        <li><a ui-sref="projectsIndex" ng-if="main.isAuthenticated()">All Projects</a></li>
+        <li><a ui-sref="projectsNew" ng-if="main.isAuthenticated()">Add Projects</a></li>
+        <li><a ui-sref="events" ng-if="main.isAuthenticated()">Events</a></li>
+        <li><a ui-sref="login" ng-if="!main.isAuthenticated()">Login</a></li>
+        <li><a ui-sref="register" ng-if="!main.isAuthenticated()">Register</a></li>
+        <li><a ui-sref="usersShow({id: main.currentUserId }) " ng-if="main.isAuthenticated()">Profile</a></li>
+        <li><a href="login" ng-click="main.logout()" ng-if="main.isAuthenticated()">Logout</a></li>
+      </ul>
+    </div>
+
+    <!-- <a ui-sref="projectsIndex" ng-if="main.isAuthenticated()">All Projects</a>
     <a ui-sref="projectsNew" ng-if="main.isAuthenticated()">Add Projects</a>
     <a ui-sref="login" ng-if="!main.isAuthenticated()">Login</a>
     <a ui-sref="register" ng-if="!main.isAuthenticated()">Register</a>
     <a ui-sref="usersShow({id: main.currentUserId }) " ng-if="main.isAuthenticated()">Profile</a>
-    <a href="login" ng-click="main.logout()" ng-if="main.isAuthenticated()">Logout</a>
+    <a href="login" ng-click="main.logout()" ng-if="main.isAuthenticated()">Logout</a> -->
 
-
-    <div class ="container">
-      <div class = "message" ng-if="main.message">
+    <div class ="container main-container">
+      <div class="message" ng-if="main.message">
         <p>{{main.message}}</p>
       </div>
 
-      <main ui-view></main>
+      <main ui-view ></main>
 
     </div>
 
   </body>
+
 </html>
