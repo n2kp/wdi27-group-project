@@ -50,7 +50,7 @@ function deleteProject(req, res, next){
 }
 
 function updateProject(req, res, next){
-  req.body.createdBy = req.user.id;
+  req.body.createdBy = req.body.createdBy.id;
   Project
   .findById(req.params.id)
   .exec()
