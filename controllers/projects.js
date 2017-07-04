@@ -7,6 +7,7 @@ const Project = require('../models/project');
 function indexProject(req, res, next){
   Project
   .find()
+  .populate('createdBy')
   .exec()
   .then((projects) => res.json(projects))
   .catch(next);
@@ -14,6 +15,10 @@ function indexProject(req, res, next){
 
 function createProject(req, res, next){
   if(req.file) req.body.image = req.file.filename;
+
+  req.body.createdBy = req.user;
+  console.log(req.user);
+
   Project
   .create(req.body)
   .then((project) => res.status(201).json(project))
@@ -23,6 +28,7 @@ function createProject(req, res, next){
 function showProject(req, res, next){
   Project
   .findById(req.params.id)
+  .populate('createdBy')
   .exec()
   .then((project) => {
     if(!project) return res.notFound();
@@ -60,16 +66,10 @@ function updateProject(req, res, next){
     }
     return project.save();
   })
-<<<<<<< HEAD
+
   .then((project)=> res.json(project))
   .catch(next);
-=======
-  .then(()=> res.redirect(`/projects/${req.params.id}`))
-  .catch((err) => {
-    if(err.name === 'ValidationError') return res.badRequest(`/projects/${req.params.id}/edit`, err.toString());
-    next(err);
-  });
->>>>>>> development
+
 }
 
 module.exports = {

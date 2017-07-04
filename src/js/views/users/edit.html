@@ -1,1 +1,84 @@
 <h1>profile edit form</h1>
+
+
+<div class="container">
+  <form ng-submit="usersEdit.update()" name="usersEdit.editForm" novalidate >
+    <div class="col-lg-6">
+
+    <div class="form-group row">
+      <label for="title" class="col-sm-2 col-form-label">Username</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="username" ng-model="usersEdit.user.username" name="username" required>
+        <div ng-messages="usersEdit.editForm.username.$error" ng-show="usersEdit.editForm.$submitted ||usersEdit.editForm.username.$touched">
+          <div class="notification" ng-message="required">Please add a username</div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="email" class="col-sm-2 col-form-label">Email</label>
+      <div class="col-sm-10">
+        <input type="email" class="form-control" id="email" ng-model="usersEdit.user.email" name="email">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="password" class="col-sm-2 col-form-label">Password</label>
+      <div class="col-sm-10">
+        <input type="password" class="form-control" id="password" ng-model="usersEdit.user.password">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="passwordConfirmation" class="col-sm-2 col-form-label">Password Confirmation</label>
+      <div class="col-sm-10">
+        <input type="password" class="form-control" id="passwordConfirmation" ng-model="usersEdit.user.passwordConfirmation">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="githubUrl" class="col-sm-2 col-form-label">GitHub Url</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="githubUrl" ng-model="usersEdit.user.githubUrl" name="githubUrl">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="linkedinUrl" class="col-sm-2 col-form-label">LinkedIn Url</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="linkedinUrl" ng-model="usersEdit.user.linkedinUrl" name="linkedinUrl">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="portfolioUrl" class="col-sm-2 col-form-label">Portfolio Url</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="portfolioUrl" ng-model="usersEdit.user.portfolioUrl" name="portfolioUrl">
+      </div>
+    </div>
+  </div>
+
+    <div class="col-lg-6">
+      <div class="form-group row">
+        <label for="image" class="col-sm-2 col-form-label">Image Url</label>
+        <div class="col-sm-10">
+          <input base64 type="file" class="form-control" id="image" ng-model="usersEdit.user.base64" name="base64">
+          <img ng-src="{{usersEdit.user.base64}}" alt="">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="tech" class="col-sm-2 col-form-label">Tech</label>
+        <div class="col-sm-10">
+          <ui-select multiple tagging tagging-label="false" ng-model="usersEdit.user.tech" theme="bootstrap" ng-disabled="main.disabled" style="width: 300px;" title="Choose a color">
+             <ui-select-match placeholder="Select techs...">{{ $item }}</ui-select-match>
+               <ui-select-choices repeat="tech in main.availableTechs | filter:$select.search">
+               {{tech}}
+             </ui-select-choices>
+           </ui-select>
+           <p>Selected: {{usersEdit.tech}}</p>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="offset-sm-2 col-sm-10">
+          <input type="submit" class="btn" value="Submit Changes">
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

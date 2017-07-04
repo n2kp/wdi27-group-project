@@ -5,16 +5,9 @@
     <h2>Register</h2>
     <form name="register.registerForm" ng-submit="register.submit()" novalidate>
       <div>
-        <label for="firstName">First Name</label>
-        <input type="text" name="firstName" id="firstName" ng-model="register.user.firstName" required>
-        <div ng-messages="register.registerForm.firstName.$error" role="alert" ng-show="(register.registerForm.$submitted || register.registerForm.firstName.$touched) && register.registerForm.firstName.$invalid" class="error">
-          <div ng-message="required">Please enter a value for this field.</div>
-        </div>
-      </div>
-      <div>
-        <label for="lastName">Last Name</label>
-        <input type="text" name="lastName" id="lastName" ng-model="register.user.lastName">
-        <div ng-messages="register.registerForm.lastName.$error" role="alert" ng-show="(register.registerForm.$submitted || register.registerForm.lastName.$touched) && register.registerForm.lastName.$invalid" class="error">
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" ng-model="register.user.username">
+        <div ng-messages="register.registerForm.username.$error" role="alert" ng-show="(register.registerForm.$submitted || register.registerForm.username.$touched) && register.registerForm.username.$invalid" class="error">
         </div>
       </div>
       <div>

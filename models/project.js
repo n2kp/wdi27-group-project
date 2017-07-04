@@ -2,29 +2,6 @@ const mongoose = require('mongoose');
 
 
 
-const tech =[
-  'JavaScript',
-  'Java',
-  'Python',
-  'Ruby',
-  'C#',
-  'Rails',
-  'C++',
-  'PHP',
-  'SQL',
-  'Android',
-  'AngularJS',
-  'Apache',
-  'Babel',
-  'BackboneJS',
-  'Bootstrap',
-  'Bower',
-  'NPM',
-  'Yarn',
-  'CSS3',
-  'SCSS/SASS'
-];
-
 const projectSchema = new mongoose.Schema({
   title: {type: String, required: true},
   description: {type: String, required: true},
@@ -47,5 +24,5 @@ projectSchema
 
 
 
-projectSchema.statics.tech = tech;
+
 module.exports = mongoose.model('Project', projectSchema);

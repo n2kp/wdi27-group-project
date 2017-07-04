@@ -41,7 +41,6 @@
   </div>
     <div class="col-lg-6 right">
 
-
     <div class="form-group row">
       <label for="image" class="col-sm-2 col-form-label">Image Url</label>
       <div class="col-sm-10">
@@ -55,14 +54,16 @@
 
 <!-- trying to implement angular-ui-select -->
 
-<ui-select ng-model="selected.value">
-    <ui-select-match>
-        <span ng-bind="$select.selected.name"></span>
-    </ui-select-match>
-    <ui-select-choices repeat="item in (itemArray | filter: $select.search) track by item.id">
-        <span ng-bind="item.name"></span>
-    </ui-select-choices>
-</ui-select>
+<ui-select multiple tagging tagging-label="false" ng-model="projectsNew.project.tech" theme="bootstrap" ng-disabled="main.disabled" style="width: 300px;" title="Choose a color">
+   <ui-select-match placeholder="Select techs...">{{ $item }}</ui-select-match>
+     <ui-select-choices repeat="tech in main.availableTechs | filter:$select.search">
+     {{tech}}
+   </ui-select-choices>
+ </ui-select>
+ <p>Selected: {{projectsNew.project}}</p>
+ <hr>
+
+
 
 <!-- end of feature -->
 
