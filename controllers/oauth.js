@@ -41,7 +41,6 @@ function github(req, res, next) {
       });
   })
   .then((user) => {
-    console.log(user);
 
     const payload = { userId: user.id };
     const token = jwt.sign(payload, secret, { expiresIn: '1hr' });
@@ -68,7 +67,6 @@ function linkedin(req, res, next) {
     json: true
   })
   .then((token) => {
-    console.log(token);
     return rp({
       method: 'GET',
       url: 'https://api.linkedin.com/v1/people/~?format=json',
@@ -80,7 +78,6 @@ function linkedin(req, res, next) {
     });
   })
   .then((profile) => {
-    console.log(profile);
     return User.findOne({ $or: [{ linkedinId: profile.id }, { email: profile.email }] })
       .then((user) => {
         if(!user) {

@@ -4,7 +4,7 @@ angular
   .controller('ProjectsNewCtrl', ProjectsNewCtrl)
   .controller('ProjectsShowCtrl', ProjectsShowCtrl)
   .controller('ProjectsEditCtrl', ProjectsEditCtrl)
-  .controller('ProjectDeleteCtrl', ProjectDeleteCtrl);
+  .controller('ProjectsDeleteCtrl', ProjectsDeleteCtrl);
 
 ProjectsIndexCtrl.$inject = ['Project', 'filterFilter', '$scope'];
 function ProjectsIndexCtrl(Project, filterFilter, $scope) {
@@ -60,14 +60,6 @@ function ProjectsShowCtrl(Project, $state, $uibModal) {
   const vm = this;
   vm.project = Project.get($state.params);
 
-  // function projectsDelete() {
-  //   vm.project
-  //     .$remove()
-  //     .then(() => $state.go('projectsIndex'));
-  // }
-  //
-  // vm.delete = projectsDelete;
-
   function openModal() {
     $uibModal.open({
       templateUrl: 'js/views/partials/projectDeleteModal.html',
@@ -102,8 +94,8 @@ function ProjectsEditCtrl(Project, $stateParams, $state) {
   vm.update = projectsUpdate;
 }
 
-ProjectDeleteCtrl.$inject = ['$uibModalInstance', 'bird', '$state'];
-function ProjectDeleteCtrl($uibModalInstance, project, $state) {
+ProjectsDeleteCtrl.$inject = ['$uibModalInstance', 'project', '$state'];
+function ProjectsDeleteCtrl($uibModalInstance, project, $state) {
   const vm = this;
   vm.project = project;
 
