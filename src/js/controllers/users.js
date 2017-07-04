@@ -1,28 +1,21 @@
 angular
   .module('projectApp')
-  .controller('UsersIndexCtrl', UsersIndexCtrl)
   .controller('UsersShowCtrl', UsersShowCtrl)
   .controller('UsersEditCtrl', UsersEditCtrl);
 
-UsersIndexCtrl.$inject = ['User'];
-function UsersIndexCtrl(User) {
-  const vm = this;
 
-  vm.all = User.query();
-}
 
 UsersShowCtrl.$inject = ['User', '$state', '$auth'];
 function UsersShowCtrl(User, $state, $auth) {
   const vm = this;
-  const { userId } = $auth.getPayload();
 
-  if(userId) vm.user = User.get({ id: userId });
-
+  vm.user = User.get($state.params);
+  console.log(vm.user);
   function logout() {
     $auth.logout();
     $state.go('login');
   }
-  
+
   function usersDelete() {
     vm.user
       .$remove()
@@ -40,7 +33,7 @@ function UsersEditCtrl(User, $stateParams, $state) {
   vm.user = User.get($stateParams);
 
   function usersUpdate() {
-    if(vm.userForm.$valid) {
+    if(vm.editForm.$valid) {
       vm.user
         .$update()
         .then(() => $state.go('usersShow', $stateParams));

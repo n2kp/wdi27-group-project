@@ -1,28 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
-const tech =[
-  'JavaScript',
-  'Java',
-  'Python',
-  'Ruby',
-  'C#',
-  'Rails',
-  'C++',
-  'PHP',
-  'SQL',
-  'Android',
-  'AngularJS',
-  'Apache',
-  'Babel',
-  'BackboneJS',
-  'Bootstrap',
-  'Bower',
-  'NPM',
-  'Yarn',
-  'CSS3',
-  'SCSS/SASS'
-];
 
 const userSchema = new mongoose.Schema({
   username: { type: String, required: true },
@@ -31,13 +9,28 @@ const userSchema = new mongoose.Schema({
   avatar: { type: String },
   githubId: { type: Number },
   githubUrl: { type: String },
-  linkedinId: { type: Number},
+  linkedinId: { type: String},
   linkedinUrl: { type: String },
   portfolioUrl: { type: String },
   tech: [{type: String, required: true}]
 });
 
-userSchema.statics.tech = tech;
+userSchema
+  .virtual('percentageComplete')
+  .get(function getPercentageComplete() {
+    let value = 0;
+    const requiredFields = ['email', 'avatar', 'githubUrl', 'linkedinUrl', 'portfolioUrl'];
+
+    for(let i = 0; i < requiredFields.length; i++) {
+      if(this[requiredFields[i]]) value+=20;
+      console.log(value);
+    }
+    return value;
+  });
+
+
+
+
 
 
 userSchema
@@ -47,7 +40,7 @@ userSchema
   });
 
 userSchema.pre('validate', function checkPassword(next) {
-  if(!this.password && !this.githubId) {
+  if(!this.password && !this.githubId && !this.linkedinId) {
     this.invalidate('password', 'required');
   }
   if(this.isModified('password') && this._passwordConfirmation !== this.password){

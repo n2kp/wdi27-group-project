@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 
 <h1>Individual project form</h1>
-<h3>{{ projectsShow.project.createdBy.firstName }}</h3>
 <h3>{{projectsShow.project.title}}</h3>
 <img ng-src="{{projectsShow.project.imageSRC}}" alt="">
 <p>Description: {{projectsShow.project.description}}</p>
-<p>Tech: {{projectsShow.project.tech}}</p>
-<button ng-if="main.isAuthenticated()" ui-sref="projectsEdit({ id: projectsShow.project.id})">Edit</button>
-    <button ng-if="main.isAuthenticated()" ng-click="projectsShow.delete()">Delete</button>
+<ul>
+  <li ng-repeat="tech in projectsShow.project.tech" class="{{tech.toLowerCase()}}">
+    Tech: {{tech}}
+    <span><i class="icon-{{tech.toLowerCase()}}"></i></span>
+
+  </li>
+</ul>
+<a ui-sref="usersShow({ id:projectsShow.project.createdBy.id })"><p>createdBy:{{projectsShow.project.createdBy.username}}</p></a>
+<!-- <a href="mailto:{{ usersShow.user.email }}" ng-if="usersShow.user.email">{{ usersShow.user.email }}</a> -->
+<button ng-if="main.isAuthenticated() && main.currentUserId === projectsShow.project.createdBy.id " ui-sref="projectsEdit({ id: projectsShow.project.id})">Edit</button>
+    <button ng-if="main.isAuthenticated() && main.currentUserId === projectsShow.project.createdBy.id" ng-click="projectsShow.delete()">Delete</button>

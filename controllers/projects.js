@@ -1,12 +1,11 @@
 const Project = require('../models/project');
 
-// function newProject(req, res) {//
-//   return res.render('projects/new', { tech: Project.tech });
-// }//
+
 
 function indexProject(req, res, next){
   Project
   .find()
+  .populate('createdBy')
   .exec()
   .then((projects) => res.json(projects))
   .catch(next);
@@ -14,6 +13,10 @@ function indexProject(req, res, next){
 
 function createProject(req, res, next){
   if(req.file) req.body.image = req.file.filename;
+
+  req.body.createdBy = req.user;
+  console.log(req.user);
+
   Project
   .create(req.body)
   .then((project) => res.status(201).json(project))
@@ -23,6 +26,7 @@ function createProject(req, res, next){
 function showProject(req, res, next){
   Project
   .findById(req.params.id)
+  .populate('createdBy')
   .exec()
   .then((project) => {
     if(!project) return res.notFound();
@@ -46,6 +50,7 @@ function deleteProject(req, res, next){
 }
 
 function updateProject(req, res, next){
+  req.body.createdBy = req.user.id;
   Project
   .findById(req.params.id)
   .exec()

@@ -17,15 +17,8 @@ function ProjectsNewCtrl(Project, $state) {
   const vm = this;
   vm.project = {};
 
-  vm.itemArray = [
-        {id: 1, name: 'first'},
-        {id: 2, name: 'second'},
-        {id: 3, name: 'third'},
-        {id: 4, name: 'fourth'},
-        {id: 5, name: 'fifth'},
-  ];
 
-  vm.selected = { value: vm.itemArray[0] };
+
 
   function projectsCreate() {
     if(vm.newForm.$valid) {
@@ -33,7 +26,7 @@ function ProjectsNewCtrl(Project, $state) {
         .save(vm.project)
         .$promise
         .then(() => {
-          // const payload =$auth.getPayload();
+
           $state.go('projectsIndex');
         });
 
@@ -65,7 +58,9 @@ function ProjectsEditCtrl(Project, $stateParams, $state) {
   console.log(vm.project);
 
   function projectsUpdate() {
+    console.log('running projects update');
     if(vm.editForm.$valid) {
+      console.log('valid!');
       vm.project
         .$update()
         .then(() => $state.go('projectsShow', $stateParams));
