@@ -5,7 +5,7 @@ angular
 MainCtrl.$inject = ['$rootScope', '$state', '$auth', '$transitions'];
 function MainCtrl($rootScope, $state, $auth, $transitions) {
   const vm = this;
-  vm.navIsOpen = false;
+  // vm.menuIsOpen = false;
 
   vm.isAuthenticated = $auth.isAuthenticated;
 
@@ -18,7 +18,9 @@ function MainCtrl($rootScope, $state, $auth, $transitions) {
   });
 
   $transitions.onSuccess({}, (transition) => {
-    vm.pageName = transition.$to().name; 
+    vm.pageName = transition.$to().name;
+    vm.menuIsOpen = false;
+    console.log(vm.menuIsOpen);
     if(vm.stateHasChanged) vm.message = null;
     if(!vm.stateHasChanged) vm.stateHasChanged = true;
     if($auth.getPayload()) vm.currentUserId = $auth.getPayload().userId;
