@@ -18,7 +18,7 @@ User
     passwordConfirmation: 'password'
   },{
     email: 'angela@ga',
-    username: 'Angele',
+    username: 'Angela',
     password: 'password',
     passwordConfirmation: 'password'
   },{

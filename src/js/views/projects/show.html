@@ -13,15 +13,16 @@
   </li>
 </ul>
 
+
+<a href="" title="like project" ng-click="projectsShow.like()">
+  <i class="fa fa-2x" ng-class="(projectsShow.project.likes.includes(projectsShow.userId)) ? 'fa-heart' : 'fa-heart-o'"></i><br>
+  <span> Likes: {{ projectsShow.project.likes.length }} </span>
+</a>
+
+
 <a ui-sref="usersShow({ id:projectsShow.project.createdBy.id })"><p>createdBy:{{ projectsShow.project.createdBy.username }}</p></a>
 <!-- <a href="mailto:{{ usersShow.user.email }}" ng-if="usersShow.user.email">{{ usersShow.user.email }}</a> -->
 
 <button ng-if="main.isAuthenticated() && main.currentUserId === projectsShow.project.createdBy.id " ui-sref="projectsEdit({ id: projectsShow.project.id})">Edit</button>
 
 <button ng-if="main.isAuthenticated() && main.currentUserId === projectsShow.project.createdBy.id" ng-click="projectsShow.open()">Delete</button>
-
-
-<style type="text/css" scoped>
-.glyph-sample:hover { color:blue; }
-</style>
-<span class="glyph-sample"><i class="icon-html5"></i> icon-html5</span>

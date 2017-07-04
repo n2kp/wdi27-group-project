@@ -112,4 +112,7 @@ function MainCtrl($rootScope, $state, $auth, $transitions) {
   }
 
   vm.logout = logout;
+
+
+
 }

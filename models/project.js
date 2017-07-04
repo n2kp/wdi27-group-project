@@ -10,7 +10,7 @@ const projectSchema = new mongoose.Schema({
   tech: [{type: String, required: true}],
   dateCreated: {type: Date},
   createdBy: {type: mongoose.Schema.ObjectId, ref: 'User'},
-  likes: [{type: mongoose.Schema.ObjectId, ref: 'User'}]
+  likes: [ { type: mongoose.Schema.ObjectId, ref: 'User' } ]
 
 });
 

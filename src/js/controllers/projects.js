@@ -55,10 +55,31 @@ function ProjectsNewCtrl(Project, $state) {
   vm.create = projectsCreate;
 }
 
-ProjectsShowCtrl.$inject = ['Project', '$state', '$uibModal'];
-function ProjectsShowCtrl(Project, $state, $uibModal) {
+ProjectsShowCtrl.$inject = ['Project', '$state', '$uibModal','User', '$auth'];
+function ProjectsShowCtrl(Project, $state, $uibModal, User, $auth) {
   const vm = this;
+
   vm.project = Project.get($state.params);
+  vm.userId = $auth.getPayload().userId;
+
+  function like(){
+    if(vm.project.likes.includes(vm.userId)) {
+      const index = vm.project.likes.indexOf(vm.userId);
+      vm.project.likes.splice(index, 1);
+    } else {
+      vm.project.likes.push(vm.userId);
+    }
+
+    Project
+      .update({ id: vm.project.id }, vm.project)
+      .$promise
+      .then((project) => {
+        console.log(project);
+      });
+  }
+
+  vm.like = like;
+
 
   function openModal() {
     $uibModal.open({
