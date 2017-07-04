@@ -44,14 +44,14 @@ function googleMap(eventsService) {
           .then((events) => {
             scope.events = events;
             // loop through events and add marker for each
-            
+
             events.forEach((event) =>{
 
               marker = new google.maps.Marker({
                 map,
                 position: event.location
               });
-            })
+            });
           });
       }
     }

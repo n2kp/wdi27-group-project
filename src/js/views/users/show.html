@@ -9,5 +9,7 @@
 <h4>{{usersShow.user.email}}</h4>
 <!-- <a href="mailto:{{ usersShow.user.email }}" ng-if="usersShow.user.email">{{ usersShow.user.email }}</a> -->
 <p>Github Url: <strong>{{ usersShow.user.githubUrl }}</strong></p>
+
 <button ng-if="main.isAuthenticated() && main.currentUserId === usersShow.user.id" ui-sref="usersEdit({ id: usersShow.user.id})">Edit</button>
-    <button ng-if="main.isAuthenticated() && main.currentUserId === usersShow.user.id" ng-click="usersShow.delete()">Delete</button>
+
+<button ng-if="main.isAuthenticated() && main.currentUserId === usersShow.user.id" ng-click="usersShow.open()">Delete</button>

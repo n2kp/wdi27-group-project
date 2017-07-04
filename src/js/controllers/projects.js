@@ -4,7 +4,7 @@ angular
   .controller('ProjectsNewCtrl', ProjectsNewCtrl)
   .controller('ProjectsShowCtrl', ProjectsShowCtrl)
   .controller('ProjectsEditCtrl', ProjectsEditCtrl)
-  .controller('ProjectDeleteCtrl', ProjectDeleteCtrl);
+  .controller('ProjectsDeleteCtrl', ProjectsDeleteCtrl);
 
 ProjectsIndexCtrl.$inject = ['Project'];
 function ProjectsIndexCtrl(Project) {
@@ -38,14 +38,6 @@ ProjectsShowCtrl.$inject = ['Project', '$state', '$uibModal'];
 function ProjectsShowCtrl(Project, $state, $uibModal) {
   const vm = this;
   vm.project = Project.get($state.params);
-
-  // function projectsDelete() {
-  //   vm.project
-  //     .$remove()
-  //     .then(() => $state.go('projectsIndex'));
-  // }
-  //
-  // vm.delete = projectsDelete;
 
   function openModal() {
     $uibModal.open({
@@ -81,8 +73,8 @@ function ProjectsEditCtrl(Project, $stateParams, $state) {
   vm.update = projectsUpdate;
 }
 
-ProjectDeleteCtrl.$inject = ['$uibModalInstance', 'bird', '$state'];
-function ProjectDeleteCtrl($uibModalInstance, project, $state) {
+ProjectsDeleteCtrl.$inject = ['$uibModalInstance', 'project', '$state'];
+function ProjectsDeleteCtrl($uibModalInstance, project, $state) {
   const vm = this;
   vm.project = project;
 
