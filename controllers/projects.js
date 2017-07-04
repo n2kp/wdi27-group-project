@@ -1,8 +1,6 @@
 const Project = require('../models/project');
 
-// function newProject(req, res) {//
-//   return res.render('projects/new', { tech: Project.tech });
-// }//
+
 
 function indexProject(req, res, next){
   Project
@@ -52,6 +50,7 @@ function deleteProject(req, res, next){
 }
 
 function updateProject(req, res, next){
+  req.body.createdBy = req.user.id;
   Project
   .findById(req.params.id)
   .exec()

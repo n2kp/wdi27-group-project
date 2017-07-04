@@ -70,7 +70,9 @@ function ProjectsEditCtrl(Project, $stateParams, $state) {
   console.log(vm.project);
 
   function projectsUpdate() {
+    console.log('running projects update');
     if(vm.editForm.$valid) {
+      console.log('valid!');
       vm.project
         .$update()
         .then(() => $state.go('projectsShow', $stateParams));

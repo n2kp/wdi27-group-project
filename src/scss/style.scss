@@ -1,11 +1,11 @@
-
-@import 'vendor/font-mfizz-2.4.1/font-mfizz.css';
-
-// Import all of your scss files here
-
-// font-family: 'Raleway', sans-serif;
-// font-family: 'Quicksand', sans-serif;
-
+//
+// @import 'vendor/font-mfizz-2.4.1/font-mfizz.css';
+//
+// // Import all of your scss files here
+//
+// // font-family: 'Raleway', sans-serif;
+// // font-family: 'Quicksand', sans-serif;
+//
 // @import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
 //
 // @keyframes checked-anim {
@@ -65,6 +65,7 @@
 //   position: absolute;
 //   top: 0;
 //   left: 0;
+//
 // }
 //
 // #trigger, #burger, #burger:before, #burger:after {
@@ -133,3 +134,10 @@
 // .main-controller {
 //   margin-top: 100px;
 // }
+
+.map {
+  height: 250px;
+  background-color: ghostwhite;
+  width: 75%;
+  float: right;
+}

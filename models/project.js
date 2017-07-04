@@ -7,7 +7,7 @@ const projectSchema = new mongoose.Schema({
   description: {type: String, required: true},
   image: {type: String},
   projectUrl: {type: String, required: true},
-  tech: [{type: String}],
+  tech: [{type: String, required: true}],
   dateCreated: {type: Date},
   createdBy: {type: mongoose.Schema.ObjectId, ref: 'User'},
   likes: [{type: mongoose.Schema.ObjectId, ref: 'User'}]
