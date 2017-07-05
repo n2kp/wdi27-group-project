@@ -16,7 +16,7 @@ function newsService($http){
             url: newstory.url
           };
         });
-        return sorted
+        return sorted;
       });
 
   };

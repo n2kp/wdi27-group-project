@@ -7,8 +7,8 @@ let latitude = '';
 let longitude = '';
 var infowindow = null;
 var markers = [];
-googleMap.$inject=['eventsService'];
-function googleMap(eventsService) {
+googleMap.$inject=['eventsService', 'mapStyles'];
+function googleMap(eventsService, mapStyles) {
   return {
     restrict: 'E',
     replace: true,
@@ -34,12 +34,15 @@ function googleMap(eventsService) {
 
         const map = new google.maps.Map(element[0], {
           zoom: 14,
-          center: latLng
+          center: latLng,
+          styles: mapStyles
         });
-
-        marker = new google.maps.Marker({
+        const icon = './images/youarehere.png';
+        LocationMarker = new google.maps.Marker({
           map,
-          position: latLng
+          animation: google.maps.Animation.DROP,
+          position: latLng,
+          icon: icon
         });
 
         eventsService
@@ -73,7 +76,7 @@ function googleMap(eventsService) {
           }
           }
         });
-      };
+      }
     }
   };
 }
