@@ -27,3 +27,5 @@ app.get('/*', (req, res) => res.sendFile(`${__dirname}/public/index.html`));
 app.use(errorHandler);
 
 app.listen(port, () => console.log(`Express has started on port: ${port}`));
+
+module.exports = app;

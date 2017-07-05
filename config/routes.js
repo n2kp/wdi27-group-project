@@ -39,7 +39,7 @@ router.route('/oauth/github')
 router.route('/oauth/linkedin')
   .post(oauth.linkedin);
 
-  router.get('/events', eventbrite.events);
+router.get('/events', eventbrite.events);
 
 router.all('/*', (req, res) => res.notFound());
 
