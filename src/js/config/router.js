@@ -61,6 +61,11 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       url: '/events',
       templateUrl: 'js/views/statics/events.html',
       controller: 'EventsCtrl as events'
+    })
+    .state('news', {
+      url: '/news',
+      templateUrl: 'js/views/statics/news.html',
+      controller: 'NewsCtrl as news'
     });
 
   $urlRouterProvider.otherwise('/');
