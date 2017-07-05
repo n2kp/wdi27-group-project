@@ -1,38 +1,43 @@
 <!DOCTYPE html>
 
-<div class="container">
-  
+<div class="container-fluid">
+
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-6 col-md-offset-3">
 
       <h2>Log in</h2>
 
-      <form name="login.loginForm" ng-submit="login.submit()" novalidate>
+      <form class="form-horizontal" name="login.loginForm" ng-submit="login.submit()" novalidate>
 
-        <div>
+        <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" name="email" id="email" ng-model="login.credentials.email" required>
+          <input class="form-control" type="email" name="email" id="email" ng-model="login.credentials.email" required>
           <div ng-messages="login.loginForm.email.$error" role="alert" ng-show="(login.loginForm.$submitted || login.loginForm.email.$touched) && login.loginForm.email.$invalid" class="error">
             <div ng-message="required">Please enter a value for this field.</div>
             <div ng-message="email">This field must be a valid email address.</div>
           </div>
         </div>
 
-        <div>
+        <div class="form-group">
           <label for="password">Password</label>
-          <input type="password" name="password" id="password" ng-model="login.credentials.password" required>
+          <input class="form-control" type="password" name="password" id="password" ng-model="login.credentials.password" required>
           <div ng-messages="login.loginForm.password.$error" role="alert" ng-show="(login.loginForm.$submitted || login.loginForm.password.$touched) && login.loginForm.password.$invalid" class="error">
             <div ng-message="required">Please enter a value for this field.</div>
           </div>
         </div>
 
-        <button class="button">Login</button>
+        <button class="btn btn-block">Login</button>
 
       </form>
 
-      <button ng-click="login.authenticate('github')">Login with GitHub</button>
-      <button ng-click="login.authenticate('linkedin')">Login with LinkedIn</button>
+      <br>
 
+      <div class="">
+        <button class="btn btn_github btn-block" ng-click="login.authenticate('github')"><i class="fa fa-github-square fa-lg" aria-hidden="true"></i>Login with GitHub</button>
+
+        <button class="btn btn_linkedin btn-block" ng-click="login.authenticate('linkedin')"><i class="fa fa-linkedin-square fa-lg" aria-hidden="true"></i>Login with LinkedIn</button>
+
+      </div>
     </div>
   </div>
 

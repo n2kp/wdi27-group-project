@@ -1,3 +1,5 @@
+/* global google */
+
 angular
 .module('projectApp')
 .directive('googleMap', googleMap);
@@ -7,6 +9,7 @@ let latitude = '';
 let longitude = '';
 var infowindow = null;
 var markers = [];
+
 googleMap.$inject=['eventsService'];
 function googleMap(eventsService) {
   return {
@@ -61,19 +64,19 @@ function googleMap(eventsService) {
             markerClick(marker, events);
           });
 
-          function markerClick(marker, events){
-            if(infowindow) infowindow.close();
-            const eventAPI = event;
+            function markerClick(marker, events){
+              if(infowindow) infowindow.close();
+              const eventAPI = event;
 
-            infowindow = new google.maps.InfoWindow({
-              content: `${eventAPI.name}`
-            });
+              infowindow = new google.maps.InfoWindow({
+                content: `${eventAPI.name}`
+              });
 
-            infowindow.open(map,marker);
-          }
+              infowindow.open(map,marker);
+            }
           }
         });
-      };
+      }
     }
   };
 }

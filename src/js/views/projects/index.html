@@ -1,23 +1,43 @@
 <!DOCTYPE html>
 
-<h1>Project index page</h1>
+<div class="container-fluid">
+  <h1>Project index page</h1>
 
-
-
-<div>
-  <input type="text" class="search" ng-model="projectsIndex.q" placeholder="Search...">
+  <div>
+    <input type="text" class="search form-control" ng-model="projectsIndex.q" placeholder="Search a technology...">
+  </div>
 </div>
 
+<br>
+<br>
+<br>
+
+<ul>
+  <li ng-repeat="project in projectsIndex.filtered">
+    <div class="bg-img" style="background-image:url('{{ project.imageSRC }}')">
+      <div class="project-overlay">
+        <div class="project-info">
+          <a ui-sref="projectsShow({ id: project.id })">
+            <h1 class="indexProjTitle">{{ project.title }}</h1>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </li>
+</ul>
 
 
 
-  <div ng-repeat="project in projectsIndex.filtered" class="col-sm-6 col-md-4 col-lg-3">
-        <a ui-sref="projectsShow({ id: project.id })">show link</a>
-        <img ng-src="{{ project.imageSRC }}" alt="">
+
+
+  <!-- <div ng-repeat="project in projectsIndex.filtered" class="row">
+
+        <a ui-sref="projectsShow({ id: project.id })"><img class="" ng-src="{{ project.imageSRC }}" alt=""></a>
       <p><strong>Project title: {{ project.title }}</strong></p>
       <p>Description: {{ project.description }}</p>
       <p>Tech: {{ project.tech }}</p>
       <p>createdby: {{ project.createdBy.username }}</p>
       <p> Likes: {{ project.likes.length }} </p>
 
-    </div>
+    </div> -->
