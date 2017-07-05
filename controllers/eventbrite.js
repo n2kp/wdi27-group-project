@@ -14,6 +14,7 @@ function events(req, res) {
       'location.latitude': req.query.lat,
       'location.longitude': req.query.lng,
       'location.within': '15km',
+      'start_date.keyword': 'today',
       expand: 'venue',
       token: process.env.EVENTBRITE_API_KEY
     },

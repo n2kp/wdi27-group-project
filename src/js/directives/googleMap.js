@@ -14,7 +14,7 @@ function googleMap(eventsService, mapStyles) {
   return {
     restrict: 'E',
     replace: true,
-    template: '<div class="map">GOOGLE MAP HERE</div>',
+    template: '<div class="map"></div>',
     scope: {
       events: '='
     },

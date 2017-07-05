@@ -1,15 +1,34 @@
 <!DOCTYPE html>
-<h1>Upcoming Events</h1>
+<h1>Events In Your Area Today</h1>
+
 <div class="yourLocation">
   <google-map events="events.all"></google-map>
 </div>
 
 
-<div class ="nearYou">
+<!-- <div class ="nearYou">
   <div ng-repeat="event in events.all">
     <h3>{{event.name}}</h3>
     <p> Location: {{event.address}} </p>
     <p>{{event.description}}</p>
-    <a href="{{event.url}}">Find Out More</a>
+    <a href="{{event.url}}" target="_blank">Find Out More</a>
+  </div>
+</div> -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 eventBox" ng-repeat="event in events.all">
+      <table class="table table-condensed">
+        <tr class="">
+          <td>{{ event.name }}</td>
+        </tr>
+        <tr>
+          <td>{{ event.address }}</td>
+        </tr>
+        <tr>
+          <td>{{ event.description | limitTo: 1000 }}<a href="{{event.url}}" target="_blank">Find Out More</a></td>
+        </tr>
+      </table>
+    </div>
   </div>
 </div>

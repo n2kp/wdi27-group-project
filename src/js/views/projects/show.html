@@ -1,38 +1,104 @@
 <!DOCTYPE html>
 
 <h1>Individual project form</h1>
-<h1><i class="icon-apache"></i></h1>
-<h3>{{projectsShow.project.title}}</h3>
-<img ng-src="{{ projectsShow.project.imageSRC }}" alt="">
-<p>Description: {{projectsShow.project.description}}</p>
 
-<ul>
-  <li ng-repeat="tech in projectsShow.project.tech" class="{{ tech.toLowerCase() }}">
-    Tech: {{tech}}
-    <span><i class="icon-{{ tech.toLowerCase() }}"></i></span>
-  </li>
-</ul>
+<div class="container">
 
+  <h3>{{projectsShow.project.title}}</h3>
+  <img ng-src="{{ projectsShow.project.imageSRC }}" alt="">
+  <p>Description: {{projectsShow.project.description}}</p>
 
-<a href="" title="like project" ng-click="projectsShow.like()">
-  <i class="fa fa-2x" ng-class="(projectsShow.project.likes.includes(projectsShow.userId)) ? 'fa-heart' : 'fa-heart-o'"></i><br>
-  <span> Likes: {{ projectsShow.project.likes.length }} </span>
-</a>
+  <ul>
+    <li ng-repeat="tech in projectsShow.project.tech" class="{{ tech.toLowerCase() }}">
+      Tech: {{tech}}
+      <span><i class="icon-{{ tech.toLowerCase() }}"></i></span>
+    </li>
+  </ul>
 
 
-<a ui-sref="usersShow({ id:projectsShow.project.createdBy.id })"><p>createdBy:{{ projectsShow.project.createdBy.username }}</p></a>
-<!-- <a href="mailto:{{ usersShow.user.email }}" ng-if="usersShow.user.email">{{ usersShow.user.email }}</a> -->
-
-<button ng-if="main.isAuthenticated() && main.currentUserId === projectsShow.project.createdBy.id " ui-sref="projectsEdit({ id: projectsShow.project.id})">Edit</button>
-
-<button ng-if="main.isAuthenticated() && main.currentUserId === projectsShow.project.createdBy.id" ng-click="projectsShow.open()">Delete</button>
+  <a href="" title="like project" ng-click="projectsShow.like()">
+    <i class="fa fa-2x" ng-class="(projectsShow.project.likes.includes(projectsShow.userId)) ? 'fa-heart' : 'fa-heart-o'"></i><br>
+    <span> Likes: {{ projectsShow.project.likes.length }} </span>
+  </a>
 
 
-<table class="table">
-  <tbody>
-    <tr>
-      <th ng-repeat="tech in projectsShow.project.tech"><i class="icon-{{ tech.toLowerCase() }}"></i></th>
-      <td>{{tech}}</td>
-    </tr>
-  </tbody>
-</table>
+  <a ui-sref="usersShow({ id:projectsShow.project.createdBy.id })"><p>createdBy:{{ projectsShow.project.createdBy.username }}</p></a>
+  <!-- <a href="mailto:{{ usersShow.user.email }}" ng-if="usersShow.user.email">{{ usersShow.user.email }}</a> -->
+
+  <button ng-if="main.isAuthenticated() && main.currentUserId === projectsShow.project.createdBy.id " ui-sref="projectsEdit({ id: projectsShow.project.id})">Edit</button>
+
+  <button ng-if="main.isAuthenticated() && main.currentUserId === projectsShow.project.createdBy.id" ng-click="projectsShow.open()">Delete</button>
+
+
+  <table class="table">
+    <tbody>
+      <tr>
+        <th ng-repeat="tech in projectsShow.project.tech"><i class="icon-{{ tech.toLowerCase() }}"></i></th>
+        <td>{{tech}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+</div>
+
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-5">
+      <h2>{{ projectsShow.project.title }}</h2>
+      <p>{{ projectsShow.project.description }}</p>
+      <p>{{ projectsShow.project.dateCreated }}</p>
+      <a href="{{ projectsShow.project.projectUrl }}" target="_blank">Link to Project</a>
+    </div>
+
+    <div class="col-md-5">
+      <div class="">
+        <a ui-sref="usersShow({ id:projectsShow.project.createdBy.id })"><p>createdBy:{{ projectsShow.project.createdBy.username }}</p></a>
+        <p>Created By: {{ projectsShow.project.createdBy.email }}</p>
+        <p>Created By: {{ projectsShow.project.createdBy.githubUrl }}</p>
+        <p>Created By: {{ projectsShow.project.createdBy.linkedinUrl }}</p>
+      </div>
+    </div>
+
+    <div class="col-md-2">
+      <img class="avatar" ng-src="{{ projectsShow.project.createdBy.avatar }}" alt="">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-7 col-md-offset-5">
+
+      <button class="btn btn-block" ng-if="main.isAuthenticated() && main.currentUserId === projectsShow.project.createdBy.id " ui-sref="projectsEdit({ id: projectsShow.project.id})">Edit</button>
+
+      <button class="btn btn-block" ng-if="main.isAuthenticated() && main.currentUserId === projectsShow.project.createdBy.id" ng-click="projectsShow.open()">Delete</button>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <img ng-src="{{ projectsShow.project.imageSRC }}" alt="">
+  </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <table class="table">
+        <tbody>
+          <tr>
+            <th ng-repeat="tech in projectsShow.project.tech"><i class="icon-{{ tech.toLowerCase() }}"></i></th>
+            <td>{{tech}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-md-4">
+      <a href="" title="like project" ng-click="projectsShow.like()">
+        <i class="fa fa-2x" ng-class="(projectsShow.project.likes.includes(projectsShow.userId)) ? 'fa-heart' : 'fa-heart-o'"></i><br>
+        <span> Likes: {{ projectsShow.project.likes.length }} </span>
+      </a>
+    </div>
+  </div>
+
+</div>

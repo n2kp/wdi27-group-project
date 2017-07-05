@@ -1,79 +1,68 @@
 <!DOCTYPE html>
 
 <h1>Add new Project</h1>
+
 <div class="container">
-  <form  name="projectsNew.newForm" ng-submit="projectsNew.create()" novalidate>
-    <div class="col-lg-6 left">
-    <div class="form-group row">
-      <label for="title" class="col-sm-2 col-form-label">Project Title</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" id="title" ng-model="projectsNew.project.title" name="title" required>
-        <div ng-messages="projectsNew.newForm.title.$error" ng-show="projectsNew.newForm.$submitted ||projectsNew.newForm.title.$touched">
-          <div class="notification" ng-message="required">Please add a title</div>
-        </div>
-      </div>
-    </div>
-    <div class="form-group row">
-      <label for="description" class="col-sm-2 col-form-label">Project Description</label>
-      <div class="col-sm-10">
-        <textarea class="form-control" id="description" ng-model="projectsNew.project.description" maxlength="500" required></textarea>
-        <div ng-messages="projectsNew.newForm.description.$error" ng-show="projectsNew.newForm.description.$submitted || projectsNew.newForm.description.$touched">
-          <div class="notification" ng-message="required">Please add a description</div>
-        </div>
-      </div>
-    </div>
-    <div class="form-group row">
-      <label for="projectUrl" class="col-sm-2 col-form-label">Project Url</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" id="projectUrl" ng-model="projectsNew.project.projectUrl" name="projectUrl" required>
-        <div ng-messages="projectsNew.newForm.projectUrl.$error" ng-show="projectsNew.newForm.$submitted ||projectsNew.newForm.projectUrl.$touched">
-          <div class="notification" ng-message="required">Please add a Project Url</div>
-        </div>
-      </div>
-    </div>
-    <div class="form-group row">
-      <div class="col-sm-10">
-        <p>For tech</p>
-      </div>
-    </div>
 
+  <div class="row">
+    <form  name="projectsNew.newForm" ng-submit="projectsNew.create()" novalidate>
+
+      <div class="col-md-5">
+        <div class="form-group row">
+          <label for="title" class="col-sm-2 col-form-label">Project Title</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="title" ng-model="projectsNew.project.title" name="title" required>
+            <div ng-messages="projectsNew.newForm.title.$error" ng-show="projectsNew.newForm.$submitted ||projectsNew.newForm.title.$touched">
+              <div class="notification" ng-message="required">Please add a title</div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="description" class="col-sm-2 col-form-label">Project Description</label>
+          <div class="col-sm-10">
+            <textarea class="form-control" id="description" ng-model="projectsNew.project.description" maxlength="500" required></textarea>
+            <div ng-messages="projectsNew.newForm.description.$error" ng-show="projectsNew.newForm.description.$submitted || projectsNew.newForm.description.$touched">
+              <div class="notification" ng-message="required">Please add a description</div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="projectUrl" class="col-sm-2 col-form-label">Project Url</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="projectUrl" ng-model="projectsNew.project.projectUrl" name="projectUrl" required>
+            <div ng-messages="projectsNew.newForm.projectUrl.$error" ng-show="projectsNew.newForm.$submitted ||projectsNew.newForm.projectUrl.$touched">
+              <div class="notification" ng-message="required">Please add a Project Url</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-5">
+        <div class="form-group">
+          <label for="tech" class="col-sm-2 col-form-label">Technology Used</label>
+          <ui-select multiple tagging tagging-label="false" ng-model="projectsNew.project.tech" theme="bootstrap" ng-disabled="main.disabled" style="width: 300px;" title="Choose a color">
+            <ui-select-match placeholder="Select techs...">{{ $item }}</ui-select-match>
+            <ui-select-choices repeat="tech in main.availableTechs | filter:$select.search">
+              {{tech}}
+            </ui-select-choices>
+          </ui-select>
+        </div>
+
+        <div class="form-group row">
+          <label for="image" class="col-sm-2 col-form-label">Image Url</label>
+          <div class="col-sm-10">
+            <input base64 type="file" class="form-control" id="image" ng-model="projectsNew.project.base64" name="base64">
+            <img ng-src="{{projectsNew.project.base64}}" alt="">
+            <div ng-messages="projectsNew.newForm.image.$error" ng-show="projectsNew.newForm.$submitted ||projectsNew.newForm.image.$touched">
+              <div class="notification" ng-message="required">Please add image url</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <button class="btn btn-block">Add Project</button>
+
+    </form>
   </div>
-    <div class="col-lg-6 right">
-
-    <div class="form-group row">
-      <label for="image" class="col-sm-2 col-form-label">Image Url</label>
-      <div class="col-sm-10">
-        <input base64 type="file" class="form-control" id="image" ng-model="projectsNew.project.base64" name="base64">
-        <img ng-src="{{projectsNew.project.base64}}" alt="">
-        <div ng-messages="projectsNew.newForm.image.$error" ng-show="projectsNew.newForm.$submitted ||projectsNew.newForm.image.$touched">
-          <div class="notification" ng-message="required">Please add image url</div>
-        </div>
-      </div>
-    </div>
-
-<!-- trying to implement angular-ui-select -->
-
-<ui-select multiple tagging tagging-label="false" ng-model="projectsNew.project.tech" theme="bootstrap" ng-disabled="main.disabled" style="width: 300px;" title="Choose a color">
-   <ui-select-match placeholder="Select techs...">{{ $item }}</ui-select-match>
-     <ui-select-choices repeat="tech in main.availableTechs | filter:$select.search">
-     {{tech}}
-   </ui-select-choices>
- </ui-select>
- <p>Selected: {{projectsNew.project}}</p>
- <hr>
-
-
-
-<!-- end of feature -->
-
-    <div class="form-group row">
-      <div class="offset-sm-2 col-sm-10">
-        <input type="submit" class="btn" value="Submit Changes">
-      </div>
-    </div>
-  </div>
-
-
-
-  </form>
 </div>

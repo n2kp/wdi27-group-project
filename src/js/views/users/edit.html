@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 
 <h1>profile edit form</h1>
 
@@ -48,28 +48,28 @@
       <img ng-repeat="avatar in usersEdit.avatars" ng-src="{{ avatar }}" ng-click="usersEdit.selectAvatar(avatar)">
 
       <h3>Selected Image <img ng-src="{{usersEdit.user.avatar}}"></h3>
-        <!-- <button ng-click="usersEdit.selectAvatar()">select avatar</button> -->
+      <!-- <button ng-click="usersEdit.selectAvatar()">select avatar</button> -->
 
     </div>
     <div class="form-group row">
       <label for="tech" class="col-sm-2 col-form-label">Tech</label>
       <div class="col-sm-10">
         <ui-select multiple tagging tagging-label="false" ng-model="usersEdit.user.tech" theme="bootstrap" ng-disabled="main.disabled" style="width: 300px;" title="Choose a color">
-           <ui-select-match placeholder="Select techs...">{{ $item }}</ui-select-match>
-             <ui-select-choices repeat="tech in main.availableTechs | filter:$select.search">
-             {{tech}}
-           </ui-select-choices>
-         </ui-select>
-         <p>Selected: {{usersEdit.tech}}</p>
+          <ui-select-match placeholder="Select techs...">{{ $item }}</ui-select-match>
+          <ui-select-choices repeat="tech in main.availableTechs | filter:$select.search">
+            {{tech}}
+          </ui-select-choices>
+        </ui-select>
+        <p>Selected: {{usersEdit.tech}}</p>
       </div>
     </div>
 
 
-      <div class="form-group row">
-        <div class="offset-sm-2 col-sm-10">
-          <input type="submit" class="btn" value="Submit Changes">
-        </div>
+    <div class="form-group row">
+      <div class="offset-sm-2 col-sm-10">
+        <input type="submit" class="btn" value="Submit Changes">
       </div>
     </div>
+
   </form>
 </div>
