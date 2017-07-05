@@ -1,4 +1,4 @@
-/* globals: api */
+/* global api */
 require('../helper');
 
 const User = require('../../models/user');

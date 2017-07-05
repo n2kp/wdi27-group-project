@@ -3,9 +3,7 @@ const moment = require('moment');
 
 function events(req, res) {
   const baseUrl = 'https://www.eventbriteapi.com/v3';
-  // const dateStart = new Date();
-  // const dateEnd = new Date( dateStart );
-  // dateEnd.setHours = ( dateStart.getHours() + 3);
+
 
   request({
     method: 'GET',
