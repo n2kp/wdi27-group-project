@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<h1>News</h1>
+
+<!-- <div class ="news"> -->
+  <h3>Latest Technology News</h3>
+
+  {{newstory.all}}
+  <div ng-repeat="newstory in news.all">
+    <h3>{{newstory.title}}</h3>
+    <h4>{{newstory.name}}</h4>
+    <p>{{newstory.description}}</p>
+    <a href="{{newstory.url}}">read more</a>
+   </div>

@@ -58,15 +58,12 @@ function googleMap(eventsService) {
             });
 
           marker.addListener('click', () => {
-            console.log('clicked');
             markerClick(marker, events);
           });
 
           function markerClick(marker, events){
-            console.log('click inside marker click');
             if(infowindow) infowindow.close();
             const eventAPI = event;
-            console.log(eventAPI);
 
             infowindow = new google.maps.InfoWindow({
               content: `${eventAPI.name}`

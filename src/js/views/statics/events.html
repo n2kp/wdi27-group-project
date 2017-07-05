@@ -1,18 +1,15 @@
 <!DOCTYPE html>
-<h1>Events</h1>
+<h1>Upcoming Events</h1>
 <div class="yourLocation">
-  <h3>Your current Location</h3>
   <google-map events="events.all"></google-map>
 </div>
 
 
 <div class ="nearYou">
-  <h3>Events Near You</h3>
   <div ng-repeat="event in events.all">
     <h3>{{event.name}}</h3>
-    <h4>{{events.description}}</h4>
-    <a href="{{events.url}}"></a>
-    <p> start Time: {{event.startTime}} </p>
-    <p> Address: {{event.address}} </p>
+    <p> Location: {{event.address}} </p>
+    <p>{{event.description}}</p>
+    <a href="{{event.url}}">Find Out More</a>
   </div>
 </div>
