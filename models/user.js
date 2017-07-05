@@ -33,9 +33,6 @@ userSchema
 
 
 
-
-
-
 userSchema
   .virtual('passwordConfirmation')
   .set(function setPasswordConfirmation(passwordConfirmation) {

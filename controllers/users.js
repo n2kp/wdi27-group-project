@@ -25,9 +25,10 @@ function updateRoute(req, res, next) {
       for(const field in req.body) {
         user[field] = req.body[field];
       }
-
+      
       return user.save();
     })
+
     .then((user) => res.json(user))
     .catch(next);
 }

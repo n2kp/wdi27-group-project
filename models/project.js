@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const s3 = require('../lib/s3');
 
 
 
@@ -21,6 +22,27 @@ projectSchema
     if(this.image.match(/^http/)) return this.image;
     return `https://s3-eu-west-1.amazonaws.com/wdi27group-project/${this.image}`;
   });
+
+projectSchema.pre('remove', function(next) {
+  if(this.image) return s3.deleteObject({ Key: this.image }, next);
+  next();
+});
+
+projectSchema
+  .path('image')
+  .set(function getPreviousImage(image) {
+    this._image = this.image;
+    return image;
+  });
+
+projectSchema.pre('save', function checkPreviousImage(next) {
+  if(this.isModified('image') && this._image) {
+    return s3.deleteObject({ Key: this._image }, next);
+  }
+  next();
+});
+
+
 
 
 
