@@ -431,3 +431,33 @@ $duration: 30s;
 .progress-bar-crimson {
   background-color: $danger;
 }
+
+div {
+  &.avatarBox {
+    text-align: center;
+    padding: 10px;
+    border: 2px solid black;
+  
+  }
+  &.button-div {
+    text-align: center;
+  }
+}
+
+img {
+  &.previewImage {
+    min-height: 300px;
+    max-height: 310px;
+  }
+}
+
+div {
+  &.message {
+    text-align: center;
+    p {
+      color: $danger;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  }
+}

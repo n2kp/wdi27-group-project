@@ -60,7 +60,7 @@
           <label for="image" class="col-sm-2 col-form-label">Image Url</label>
           <div class="col-sm-10">
             <input base64 type="file" class="form-control" id="image" ng-model="projectsEdit.project.base64" name="base64">
-            <img ng-src="{{projectsEdit.project.base64}}" alt="">
+            <img class="previewImage" ng-src="{{projectsEdit.project.base64}}" alt="">
             <div class="error" ng-messages="projectsEdit.editForm.image.$error" ng-show="projectsEdit.editForm.$submitted ||projectsEdit.editForm.image.$touched">
               <div class="notification" ng-message="required">Please add image url</div>
             </div>
@@ -70,8 +70,8 @@
 
       </div>
 
-      <div class="row button">
-        <input type="submit" class="btn" value="Submit Changes">
+      <div class="row button-div">
+        <input type="submit" class="btn success" value="Submit Changes">
       </div>
 
     </form>

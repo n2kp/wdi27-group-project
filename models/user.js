@@ -15,6 +15,13 @@ const userSchema = new mongoose.Schema({
   tech: [{type: String, required: true}]
 });
 
+userSchema
+  .virtual('projects', {
+    ref: 'Project',
+    localField: '_id',
+    foreignField: 'createdBy'
+  });
+
 
 
 userSchema
