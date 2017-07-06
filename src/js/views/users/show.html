@@ -4,7 +4,7 @@
 
 <div class="userProgress container">
   <p>Profile Strength:</p>
-  <uib-progressbar class="progress-striped active progress-width" value="usersShow.user.percentageComplete"  type="{{usersShow.type}}">{{usersShow.user.percentageComplete}} % </uib-progressbar>
+  <uib-progressbar class="progress-striped active progress-width" value="usersShow.user.percentageComplete"  type="{{usersShow.type}}" ng-if="main.isAuthenticated() && main.currentUserId === usersShow.user.id">{{usersShow.user.percentageComplete}} % </uib-progressbar>
 </div>
 
 <div class="container">
@@ -37,7 +37,7 @@
     <div class="userInfo col-md-4">
 
       <div class="row">
-        <img class="profilePicture" src="{{usersShow.user.avatar}}" alt="">
+        <img class="profilePicture" src="{{usersShow.user.avatar}}" ng-if="usersShow.user.avatar" alt="">
         <h2>{{ usersShow.user.username }}</h2>
       </div>
 
