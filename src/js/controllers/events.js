@@ -3,7 +3,7 @@ angular
   .controller('EventsCtrl', EventsCtrl);
 
 EventsCtrl.$inject = ['eventsService'];
-function EventsCtrl( eventsService) {
+function EventsCtrl(eventsService) {
   const vm = this;
 
 }

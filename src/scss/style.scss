@@ -113,9 +113,9 @@ footer {
   color: $default;
 }
 
-.devbookIntro {
-  text-align: center;
-}
+// .devbookIntro {
+//   text-align: center;
+// }
 
 hr {
   border-color: black;
@@ -149,11 +149,27 @@ button {
   color: white;
 }
 
+.quote{
+  float: left;
+  padding-top: 20%;
+  diplay: inline-grid;
+  text-align: center;
+}
+
+.quoteAuthenticated{
+  padding: 10%;
+}
+
 .devbookIntro, .loginBox {
   margin: 25px;
   border: 1px solid black;
   padding: 30px;
+  float: right;
+  display: inline-grid;
+  width: 100%;
+  text-align: center;
 }
+
 
 ul {
   // width: 100%;
