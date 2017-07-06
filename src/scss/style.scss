@@ -367,6 +367,8 @@ ul {
 
 .findMore{
   float: right;
+  font-size: 16px;
+  font-weight: bold;
 }
 .eventBox {
   border: 1px solid $default;
@@ -619,5 +621,21 @@ div {
       font-size: 20px;
       font-weight: bold;
     }
+  }
+}
+
+//project Show page
+.creatorInfo{
+  float: right;
+  text-align: right;
+  margin-top: 8%;
+  color: $default;
+}
+.projectInfo{
+  font-size: 18px;
+  color: $default;
+  h2{
+    font-size: 40px;
+    font-weight: bold;
   }
 }
