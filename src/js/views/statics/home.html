@@ -3,15 +3,22 @@
 <div class="container-fluid">
   <div class="row">
 
-
-<div class="quote col-md-7 ">
-<!-- //col-md-offset-7 -->
+<!-- quotes to be displayed if user is not yet logged in -->
+    <div class="quote col-md-7" ng-if="!main.isAuthenticated()">
       <div ng-controller="HomeCtrl as home">
         <h1> {{home.todayQuote}} </h1>
       </div>
     </div>
+<!-- quotes to be displayed if user is logged in -->
+    <div class="quoteAuthenticated col-md-12" ng-if="main.isAuthenticated()">
+      <div ng-controller="HomeCtrl as home">
+        <h1> {{home.todayQuote}} </h1>
+      </div>
+    </div>
+
+  <!-- logging in and register boxes, only showed if not logged in -->
     <div class="col-md-4 ">
-      <div class="devbookIntro">
+      <div class="devbookIntro" ng-if="!main.isAuthenticated()">
         <h2>DevBook</h2>
         <p>A platform for developers to showcase personal and professional projects to </p>
 
@@ -66,15 +73,10 @@
 
         </div>
 
-
-
       </div>
 
-    <!-- </div>
 
-    <div class="col-md-4 col-md-offset-7"> -->
-
-      <div class="loginBox" ng-controller="LoginCtrl as login">
+      <div class="loginBox" ng-if="!main.isAuthenticated()" ng-controller="LoginCtrl as login">
         <p>Already a member?</p>
         <button class="btn btn_home btn-sm btn-block">Login</button>
       </div>
