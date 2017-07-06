@@ -41,6 +41,12 @@ User
     username: 'Beyonce',
     password: 'password',
     passwordConfirmation: 'password'
+  },{
+    email: 'mark@ga',
+    username: 'Mark',
+    password: 'password',
+    passwordConfirmation: 'password'
+
   }])
 
   .then((users) => {
@@ -191,7 +197,46 @@ User
         dateCreated: '2016-12-03',
         tech: ['Ruby', 'HTML', 'SCSS', 'Bootstrap'],
         createdBy: users[4]
-
+      },{
+        title: 'Essential',
+        description: 'My porfolio. Went for a minimal page with plenty of photo backgrounds shot on holiday',
+        image: 'http://i.imgur.com/XExXfW4.png',
+        projectUrl: 'https://unsplash.com/?photo=FlwhX4vtzt0' ,
+        dateCreated: '2017-02-15',
+        tech: ['Git', 'Gulp', 'Python', 'SASS', 'HTML5'],
+        createdBy: users[5]
+      },{
+        title: 'Whoa Nelly',
+        description: 'Project working on the Whoa Nelly Catering website. Quite a minimal page but I learnt loads and really pleased with the outcome!',
+        image: 'http://i.imgur.com/XclRzrj.png',
+        projectUrl: 'https://whoanellycatering.com/',
+        dateCreated: '2016-11-28',
+        tech: ['Git', 'CPlusPlus', 'HTML5', 'SASS', 'Gulp'],
+        createdBy: users[1]
+      },{
+        title: 'Indigo',
+        description: 'Working to build online journal. Really simple but effective design.',
+        image: 'http://i.imgur.com/undefined.png',
+        projectUrl: 'https://unsplash.com/?photo=1d7J26G9xVY',
+        dateCreated: '2017-03-10',
+        tech: ['Elm', 'Plone', 'Wordpress', 'Azure'],
+        createdBy: users[5]
+      },{
+        title: 'A higher plain',
+        description: 'An example of the work I did for A higher plain website.',
+        image: 'http://i.imgur.com/ILgpZf7.png',
+        projectUrl: 'https://unsplash.com/?photo=Ya3FqJdKVaw',
+        dateCreated: '2016-09-28',
+        tech: ['Codeigniter', 'npm', 'Apache', 'Grunt', 'Codepen'],
+        createdBy: users[4]
+      },{
+        title: 'A Soft Murmur',
+        description: 'Small project working with ambient sounds.',
+        projectUrl: 'https://unsplash.com/?photo=1CD3fd8kHnE',
+        image: 'http://i.imgur.com/O315LTo.png',
+        dateCreated: '2017-04-12',
+        tech: ['npm', 'ReactJS', 'CPlusPlus', 'Python', 'SASS'],
+        createdBy: users[3]
       }]);
   })
   .then((projects) => console.log(`${projects.length} projects created`))
