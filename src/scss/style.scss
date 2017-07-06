@@ -95,6 +95,7 @@ nav {
   background-color: ghostwhite;
   width: 100%;
   float: right;
+  margin-bottom: 30px;
 }
 
 i {
@@ -113,9 +114,6 @@ footer {
   color: $default;
 }
 
-// .devbookIntro {
-//   text-align: center;
-// }
 
 hr {
   border-color: black;
@@ -127,10 +125,11 @@ button {
     border-radius: 10px;
   }
 }
-
+//homepage styling
 .btn_github {
   background-color: #24292E;
   color: white;
+  margin-bottom: 5px;
   &:hover {
     color: $warning;
   }
@@ -154,6 +153,8 @@ button {
   padding-top: 20%;
   diplay: inline-grid;
   text-align: center;
+  color: $default;
+  padding-right: 5%;
 }
 
 .quoteAuthenticated{
@@ -161,13 +162,16 @@ button {
 }
 
 .devbookIntro, .loginBox {
-  margin: 25px;
+  margin: 5px;
   border: 1px solid black;
   padding: 30px;
   float: right;
   display: inline-grid;
   width: 100%;
   text-align: center;
+  h2{
+    margin-top: 0;
+  }
 }
 
 
@@ -239,7 +243,7 @@ ul {
     }
   }
 }
-
+//events page styling
 table {
   tr {
     &:nth-child(1) {
@@ -252,13 +256,15 @@ table {
       font-size: 16px;
     }
     &:nth-child(3) {
-      height: 350px;
+      height: 170px;
       font-size: 14px;
       text-align: justify;
     }
   }
 }
-
+.findMore{
+  float: right;
+}
 .eventBox {
   border: 1px solid $default;
   border-radius: 10px;

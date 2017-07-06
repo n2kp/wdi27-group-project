@@ -26,9 +26,12 @@
           <td>{{ event.address }}</td>
         </tr>
         <tr>
-          <td>{{ event.description | limitTo: 1000 }}<a href="{{event.url}}" target="_blank">Find Out More</a></td>
+          <td>{{ event.description | limitTo: 500 }}...</td>
+
         </tr>
+
       </table>
+      <a class="findMore" href="{{event.url}}" target="_blank">Find Out More</a>
     </div>
   </div>
 </div>
