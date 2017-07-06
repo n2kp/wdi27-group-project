@@ -431,3 +431,47 @@ $duration: 30s;
 .progress-bar-crimson {
   background-color: $danger;
 }
+
+//profile styling
+.userInfo{
+  float:right;
+  border: $default 2px solid;
+  .profilePicture{
+    border-radius: 50%;
+    height: 200px;
+    border: $default 0.5px solid;
+    margin-left: 23%;
+    margin-top: 5%;
+  }
+  h2{
+    text-align: center;
+    font-size: 30px;
+  }
+  .userLinks{
+    padding-bottom: 10px;
+    i{
+      padding-left: 4%;
+    }
+  }
+}
+
+.userProjects{
+  float: left
+}
+.techIconsGrid{
+  display: inline-block;
+  padding: 25px;
+  }
+
+.profileButton{
+  margin-bottom: 20px;
+  color: $default;
+  width: 90%;
+  margin-left:5%;
+  &.edit{
+  background-color: $primary;
+  }
+  &.delete{
+  background-color: $danger;
+  }
+}
