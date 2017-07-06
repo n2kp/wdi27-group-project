@@ -160,6 +160,30 @@ User
         tech: ['Git', 'Gulp', 'npm', 'Heroku', 'Jquery', 'HTML5', 'SASS', 'JavaScript'],
         createdBy: users[2]
       },{
+        title: 'Creative Cloud',
+        description: 'My project based on the Adobe website, testing my CSS skills',
+        image: 'https://designmodo.com/wp-content/uploads/2015/12/21-Keep-Portland-Weird.jpg',
+        projectUrl: 'https://www.magicoflapland.net/',
+        dateCreated: '2017-05-20',
+        tech: ['Git', 'Gulp', 'Aws','Azure','Codeigniter', 'Codepen', 'Dreamhost', 'Heroku', 'Jquery', 'HTML5', 'SASS', 'JavaScript'],
+        createdBy: users[1]
+      },{
+        title: 'My Tumbler',
+        description: 'I wanted to practise my CSS skills, so I decided to created a replica of tumbler',
+        image: 'https://webby-gallery-production.s3.amazonaws.com/uploads/asset/image/entry-asset-8377/optimized_entry_id_141036_idx_0_asset_id_1578.jpg',
+        projectUrl: 'https://www.magicoflapland.net/',
+        dateCreated: '2016-08-20',
+        tech: ['Git', 'Gulp', 'npm', 'Heroku', 'Jquery', 'HTML5', 'SASS', 'JavaScript'],
+        createdBy: users[2]
+      },{
+        title: 'Events and Co',
+        description: 'This is a basic website I designed for an events company',
+        image: 'http://sbws.biz/wp-content/uploads/2014/07/best-web-design.png',
+        projectUrl: 'https://www.magicoflapland.net/',
+        dateCreated: '2016-08-20',
+        tech: ['Git', 'Gulp', 'npm', 'Heroku', 'Jquery', 'HTML5', 'SASS', 'JavaScript'],
+        createdBy: users[2]
+      },{
         title: 'Barry\'s Portfolio',
         description: 'Portfolio that I created upon leaving the WDI course at GA. Check out the link and contact for more information',
         image: 'http://i.imgur.com/3BvVoSJ.png',

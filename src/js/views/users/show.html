@@ -2,8 +2,6 @@
 
 <h1 class="pageTitle">{{ usersShow.user.username }}'s Profile</h1>
 
-{{usersShow.user.projects}}
-
 <div class="userProgress container">
   <p>Profile Strength:</p>
   <uib-progressbar class="progress-striped active progress-width" value="usersShow.user.percentageComplete"  type="{{usersShow.type}}">{{usersShow.user.percentageComplete}} % </uib-progressbar>
@@ -17,9 +15,19 @@
       <div class="row">
         <div class = "techIconsGrid" ng-repeat="tech in usersShow.user.tech"><i class="icon-{{ tech.toLowerCase() }} "></i></div>
       </div>
+      <h2>Your Projects</h2>
+      <div class="row individualProjectBox" ng-repeat="project in usersShow.user.projects">
+        <div class="col-md-4">
+          <img ng-src="{{project.imageSRC}}" alt="">
+        </div>
+        <div class="col-md-7 userShowContent">
+          <a ui-sref="projectsShow({ id: project.id })"><h4>{{project.title}}</h4></a>
+          <p>{{project.description}}</p>
 
-      <div class="row" ng-repeat>
-        USER PROJECTS
+        </div>
+
+
+
       </div>
 
     </div>
