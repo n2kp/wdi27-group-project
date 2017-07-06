@@ -200,13 +200,7 @@ nav {
   }
 }
 
-.map {
-  height: 300px;
-  background-color: ghostwhite;
-  width: 100%;
-  float: right;
-  margin-bottom: 50px;
-}
+
 
 i {
   font-size: 60px;
@@ -224,9 +218,6 @@ footer {
   color: $default;
 }
 
-// .devbookIntro {
-//   text-align: center;
-// }
 
 hr {
   border-color: black;
@@ -239,10 +230,11 @@ button {
     border-radius: 5px;
   }
 }
-
+//homepage styling
 .btn_github {
   background-color: #24292E;
   color: white;
+  margin-bottom: 5px;
   &:hover {
     color: $warning;
   }
@@ -270,6 +262,8 @@ button {
   padding-top: 20%;
   diplay: inline-grid;
   text-align: center;
+  color: $default;
+  padding-right: 5%;
 }
 
 .quoteAuthenticated{
@@ -277,13 +271,16 @@ button {
 }
 
 .devbookIntro, .loginBox {
-  margin: 25px;
+  margin: 5px;
   border: 1px solid black;
   padding: 30px;
   float: right;
   display: inline-grid;
   width: 100%;
   text-align: center;
+  h2{
+    margin-top: 0;
+  }
 }
 
 
@@ -343,31 +340,45 @@ ul {
     }
   }
 }
+//events page styling
 
-table {
-  tr {
-    &:nth-child(1) {
-      height: 75px;
-      font-size: 20px;
-      font-weight: bold;
-    }
-    &:nth-child(2) {
-      height: 60px;
-      font-size: 16px;
-    }
-    &:nth-child(3) {
-      height: 350px;
-      font-size: 14px;
-      text-align: justify;
-    }
-  }
+.eventName {
+  height: 75px;
+  font-size: 30px;
+  font-weight: bold;
+}
+.eventAddress {
+  height: 60px;
+  font-size: 16px;
+}
+.eventDescription {
+  height: 170px;
+  font-size: 14px;
+  text-align: justify;
 }
 
+.findMore{
+  float: right;
+}
 .eventBox {
   border: 1px solid $default;
-  border-radius: 5px;
+  border-radius: 10px;
+  width: 48%;
+  margin: 5px;
+  color: $default;
+
+}
+.map {
+  height: 300px;
+  background-color: ghostwhite;
+  width: 100%;
+  float: right;
+  margin-bottom: 50px;
 }
 
+.separator{
+  height: 80px;
+}
 
 $duration: 30s;
 
@@ -451,7 +462,6 @@ $duration: 30s;
 .progress-bar-crimson {
   background-color: $danger;
 }
-
 
 .modal-header {
   background-color: $primary;

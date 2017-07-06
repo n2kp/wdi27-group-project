@@ -35,9 +35,10 @@ function googleMap(eventsService, mapStyles) {
         const latLng = { lat: position.coords.latitude, lng: position.coords.longitude };
 
         const map = new google.maps.Map(element[0], {
-          zoom: 14,
+          zoom: 12,
           center: latLng,
-          styles: mapStyles
+          styles: mapStyles,
+          scrollwheel: false
         });
         const icon = './images/youarehere.png';
         LocationMarker = new google.maps.Marker({
