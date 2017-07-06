@@ -47,8 +47,8 @@
 
     <div class="col-md-10">
       <div class="row">
-        <div class="col-sm-2" ng-repeat="tech in projectsShow.project.tech">
-          <i class="icon-{{ tech.toLowerCase() }}"></i>
+        <div class="col-sm-2 tech-icon" ng-repeat="tech in projectsShow.project.tech">
+          <i class="icon-{{ tech.toLowerCase() }}" ui-sref="projectsIndex({tech})"></i>
           <h5>{{ tech }}</h5>
         </div>
       </div>

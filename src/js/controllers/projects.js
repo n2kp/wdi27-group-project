@@ -6,9 +6,10 @@ angular
   .controller('ProjectsEditCtrl', ProjectsEditCtrl)
   .controller('ProjectsDeleteCtrl', ProjectsDeleteCtrl);
 
-ProjectsIndexCtrl.$inject = ['Project', 'filterFilter', '$scope'];
-function ProjectsIndexCtrl(Project, filterFilter, $scope) {
+ProjectsIndexCtrl.$inject = ['Project', 'filterFilter', '$scope', '$state'];
+function ProjectsIndexCtrl(Project, filterFilter, $scope, $state) {
   const vm = this;
+  vm.q = $state.params.tech;
 
   Project.query()
   .$promise

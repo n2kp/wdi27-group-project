@@ -26,14 +26,19 @@
   }
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
+@keyframes grow {
+    0% {
+      transform: scale(1.0);
+      -webkit-transform: scale(1.0);
+    }
+    // 50% {
+    //   transform: scale(1.2);
+    //   -webkit-transform: scale(1.2);
+    // }
+    100% {
+      transform: scale(1.4);
+      -webkit-transform: scale(1.4);
+    }
 }
 
 //////////////////////////////////////////////// Variables
@@ -61,18 +66,6 @@ $green:   #005B46;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-
-.form-styles {
-  width: 100%;
-  font-size: 14px;
-  padding: 8px 10px;
-  border: 0;
-  border-radius: 5px;
-  background-color: white;
-  &:focus {
-    outline: none !important;
-  }
 }
 
 .success {
@@ -212,6 +205,40 @@ nav {
 
 i {
   font-size: 60px;
+  font-weight: 400;
+  &.icon-apache, &.icon-centos, &.icon-debian, &.icon-docker, &.icon-fedora, &.icon-gentoo, &.icon-git, &.icon-gnome, &.icon-gradle, &.icon-grunt, &.icon-gulp, &.icon-jetty, &.icon-kde, &.icon-npm, &.icon-redhat, &.icon-solaris, &.icon-tomcat {
+    &:hover {
+      color: $primary;
+    }
+  }
+  &.icon-aws, &.icon-azure, &.icon-codeigniter, &.icon-codepen, &.icon-dreamhost, &.icon-heroku, &.icon-magento, &.icon-openshift, &.icon-sitefinity, &.icon-wordpress {
+    &:hover {
+      color: $warning;
+    }
+  }
+  &.icon-cassandra, &.icon-hadoop, &.icon-mariadb, &.icon-mongodb, &.icon-mssql, &.icon-mysql, &.icon-oracle, &.icon-postgres, &.icon-redis {
+    &:hover {
+      color: $info;
+    }
+  }
+  &.icon-angular, &.icon-backbone, &.icon-bootstrap, &.icon-d3, &.icon-grails, &.icon-jquery, &.icon-laravel, &.icon-plone, &.icon-reactjs, &.icon-ruby-on-rails, &.icon-spring, &.icon-symfony, &.icon-unity {
+    &:hover {
+      color: $success;
+    }
+  }
+  &.icon-c, &.icon-clojure, &.icon-cplusplus, &.icon-csharp, &.icon-css3, &.icon-elixir, &.icon-elm, &.icon-erlang, &.icon-go, &.icon-haskell, &.icon-html5, &.icon-java, &.icon-javascript, &.icon-nodejs, &.icon-objc, &.icon-perl, &.icon-php, &.icon-python, &.icon-ruby, &.icon-rust, &.icon-sass, &.icon-scala, &.icon-script, &.icon-shell {
+    &:hover {
+      color: $danger;
+    }
+  }
+}
+
+.tech-icon {
+  cursor: pointer;
+  &:hover {
+    transition: all 0.2s ease;
+    transform: scale(1.1);
+  }
 }
 
 img {
