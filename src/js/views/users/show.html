@@ -13,7 +13,7 @@
     <div class="userProjects col-md-8">
 
       <div class="row">
-        <div class = "techIconsGrid" ng-repeat="tech in usersShow.user.tech"><i class="icon-{{ tech.toLowerCase() }} "></i></div>
+        <div class = "techIconsGrid" ng-repeat="tech in usersShow.user.tech" ui-sref="projectsIndex({tech})"><i class="icon-{{ tech.toLowerCase() }}"></i></div>
       </div>
       <h2>Your Projects</h2>
       <div class="row individualProjectBox" ng-repeat="project in usersShow.user.projects">
