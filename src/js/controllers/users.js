@@ -10,7 +10,20 @@ function UsersShowCtrl(User, $state, $auth, $uibModal) {
   User.get($state.params, (data)=>{
     vm.user = data;
     console.log(vm.user);
+    calculateProgressType();
   });
+
+  function calculateProgressType() {
+    if (vm.user.percentageComplete < 35) {
+      vm.type = 'crimson';
+    } else if (vm.user.percentageComplete < 50 ) {
+      vm.type ='danger';
+    } else if (vm.user.percentageComplete < 75 ) {
+      vm.type ='warning';
+    } else {
+      vm.type ='success';
+    }
+  }
 
   function logout() {
     $auth.logout();

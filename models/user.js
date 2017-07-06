@@ -15,6 +15,8 @@ const userSchema = new mongoose.Schema({
   tech: [{type: String, required: true}]
 });
 
+
+
 userSchema
   .virtual('percentageComplete')
   .get(function getPercentageComplete() {
@@ -29,7 +31,27 @@ userSchema
     return ['email', 'avatar', 'githubUrl', 'linkedinUrl', 'portfolioUrl', 'tech'].reduce((value, key) => {
       return this[key] && this[key].length > 0 ? value + 15 : value;
     }, 10);
+
+
   });
+
+
+
+// userSchema
+//   .virtual('progressbarType')
+//   .get(function getProgressbarType(){
+//
+//
+//     if (value < 25) {
+//       type= 'danger';
+//     } else if (value < 50 ) {
+//       type='warning';
+//     } else if (value < 75 ) {
+//       type='info';
+//     } else {
+//       type='success';
+//     }
+//   });
 
 
 

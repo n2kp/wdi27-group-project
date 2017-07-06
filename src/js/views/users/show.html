@@ -1,19 +1,75 @@
 <!DOCTYPE html>
 
-<h1>user profile show</h1>
+<h1 class="pageTitle">User Profile</h1>
 
-    <uib-progressbar ng-if="main.isAuthenticated() && main.currentUserId === usersShow.user.id" animate="true" value="usersShow.user.percentageComplete" type="success" max="100"><b>{{usersShow.user.percentageComplete}} %</b></uib-progressbar>
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-8">
+
+      <div class="row">
+        <table class="table">
+          <tbody>
+            <tr>
+              <th ng-repeat="tech in usersShow.user.tech"><i class="icon-{{ tech.toLowerCase() }}"></i></th>
+              <td>{{ usersShow.user.tech }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="row" ng-repeat>
+        USER PROJECTS
+      </div>
+
+    </div>
 
 
-<h2>Username:{{ usersShow.user.username }}</h2>
-<img src="{{usersShow.user.avatar}}" alt="">
-<h4>{{usersShow.user.email}}</h4>
-<!-- <a href="mailto:someone@example.com?Subject=Hello%20again" target="_top">Send Mail</a> -->
-<a href="mailto:{{ usersShow.user.email }}?Subject=Hello&Body=Hello" ng-if="usersShow.user.email">{{ usersShow.user.email }}</a>
-<p>Github Url: <strong>{{ usersShow.user.githubUrl }}</strong></p>
 
+    <div class="col-md-3 col-md-offset-9">
 
+      <div class="row">
+        <img src="{{usersShow.user.avatar}}" alt="">
+        <h2>{{ usersShow.user.username }}</h2>
+      </div>
 
-<button ng-if="main.isAuthenticated() && main.currentUserId === usersShow.user.id" ui-sref="usersEdit({ id: usersShow.user.id})">Edit</button>
+      <div class="row">
 
-<button ng-if="main.isAuthenticated() && main.currentUserId === usersShow.user.id" ng-click="usersShow.open()">Delete</button>
+        <div class="userLinks">
+          <span>
+            <a href="mailto:{{ usersShow.user.email }}?Subject=Hi!%20Saw%20your%20profile%20on%20DevBook%20and%20wanted%20to%20get%20in%20touch..." target="_top">
+              <i class="fa fa-envelope fa-5x" aria-hidden="true"></i>
+            </a>
+          </span>
+          <span>
+            <a href="{{ usersShow.user.githubUrl }}" target="_blank">
+              <i class="fa fa-github-square fa-5x" aria-hidden="true"></i>
+            </a>
+          </span>
+          <span>
+            <a href="{{ usersShow.user.linkedinUrl }}" target="_blank">
+              <i class="fa fa-linkedin-square fa-5x" aria-hidden="true"></i>
+            </a>
+          </span>
+          <span>
+            <a href="{{ usersShow.user.portfolioUrl }}" target="_blank">
+              <i class="fa fa-laptop fa-5x" aria-hidden="true"></i>
+            </a>
+          </span>
+        </div>
+
+        <div class="userButtons">
+          <button class="btn btn-block" ng-if="main.isAuthenticated() && main.currentUserId === usersShow.user.id" ui-sref="usersEdit({ id: usersShow.user.id})">Edit</button>
+          <button class="btn btn-block" ng-if="main.isAuthenticated() && main.currentUserId === usersShow.user.id" ng-click="usersShow.open()">Delete</button>
+        </div>
+
+        <div class="userProgress">
+          <uib-progressbar class="progress-striped active" value="usersShow.user.percentageComplete"  type="{{usersShow.type}}">{{usersShow.user.percentageComplete}} % </uib-progressbar>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<h1>Events In Your Area Today</h1>
+<h1 class="pageTitle">News &#38; Today&#39;s Events</h1>
 
 <div class="yourLocation">
   <google-map events="events.all"></google-map>
@@ -34,4 +34,14 @@
       <a class="findMore" href="{{event.url}}" target="_blank">Find Out More</a>
     </div>
   </div>
+</div>
+
+<div ng-controller="NewsCtrl as news" class="ticker-wrap">
+<div class="ticker">
+  <div class="ticker__item" ng-repeat="newstory in news.all">
+    <a href="{{newstory.url}}" target="_blank">
+      <h4>NEWS: {{ newstory.title }}</h4>
+    </a>
+  </div>
+</div>
 </div>

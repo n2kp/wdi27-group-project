@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 
-<div class="container-fluid">
-  <h1>Project index page</h1>
+<h1 class="pageTitle">Project Directory</h1>
 
-  <div>
-    <input type="text" class="search form-control" ng-model="projectsIndex.q" placeholder="Search a technology...">
-  </div>
+<div class="container">
+
+
+    <div class="input-group">
+      <span class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></span>
+      <input type="text" class="search form-control" ng-model="projectsIndex.q" placeholder="Search a technology..." aria-describedby="basic-addon1">
+    </div>
+
 </div>
 
 <br>
@@ -26,18 +30,3 @@
     </div>
   </li>
 </ul>
-
-
-
-
-
-  <!-- <div ng-repeat="project in projectsIndex.filtered" class="row">
-
-        <a ui-sref="projectsShow({ id: project.id })"><img class="" ng-src="{{ project.imageSRC }}" alt=""></a>
-      <p><strong>Project title: {{ project.title }}</strong></p>
-      <p>Description: {{ project.description }}</p>
-      <p>Tech: {{ project.tech }}</p>
-      <p>createdby: {{ project.createdBy.username }}</p>
-      <p> Likes: {{ project.likes.length }} </p>
-
-    </div> -->
