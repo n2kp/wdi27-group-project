@@ -5,25 +5,40 @@
 <div class="container">
 
   <div class="row">
-    <div class="col-md-5">
+    <div class="col-md-7 projectInfo">
       <h2>{{ projectsShow.project.title }}</h2>
       <p>{{ projectsShow.project.description }}</p>
       <p>{{ projectsShow.project.dateCreated | date : 'd-MMMM-y' }}</p>
       <a href="{{ projectsShow.project.projectUrl }}" target="_blank">Link to Project</a>
     </div>
 
-    <div class="col-md-5">
-      <div class="">
-        <a ui-sref="usersShow({ id:projectsShow.project.createdBy.id })"><p>createdBy:{{ projectsShow.project.createdBy.username }}</p></a>
-        <p>Created By: {{ projectsShow.project.createdBy.email }}</p>
-        <p>Created By: {{ projectsShow.project.createdBy.githubUrl }}</p>
-        <p>Created By: {{ projectsShow.project.createdBy.linkedinUrl }}</p>
+    <div class="col-md-5 creatorInfo">
+      <h4>Created By: <a ui-sref="usersShow({ id:projectsShow.project.createdBy.id })">{{ projectsShow.project.createdBy.username }}</a></h4>
+      <div class="userLinks">
+        <span>
+          <a href="mailto:{{ usersShow.user.email }}?Subject=Hi!%20Saw%20your%20profile%20on%20DevBook%20and%20wanted%20to%20get%20in%20touch..." target="_top">
+            <i class="fa fa-envelope fa-4x" aria-hidden="true"></i>
+          </a>
+        </span>
+        <span>
+          <a href="{{ usersShow.user.githubUrl }}" target="_blank">
+            <i class="fa fa-github-square fa-4x" aria-hidden="true"></i>
+          </a>
+        </span>
+        <span>
+          <a href="{{ usersShow.user.linkedinUrl }}" target="_blank">
+            <i class="fa fa-linkedin-square fa-4x" aria-hidden="true"></i>
+          </a>
+        </span>
+        <span>
+          <a href="{{ usersShow.user.portfolioUrl }}" target="_blank">
+            <i class="fa fa-laptop fa-4x" aria-hidden="true"></i>
+          </a>
+        </span>
       </div>
-    </div>
 
-    <div class="col-md-2">
-      <img class="avatar" ng-src="{{ projectsShow.project.createdBy.avatar }}" alt="">
-    </div>
+
+
   </div>
 
   <div class="row">
@@ -40,36 +55,30 @@
     <img ng-src="{{ projectsShow.project.imageSRC }}" alt="">
   </div>
 
-  <div class="row">
-
-    <div class="col-md-8">
-      <table class="table">
-        <tbody>
-          <tr>
-            <th ng-repeat="tech in projectsShow.project.tech"><i class="icon-{{ tech.toLowerCase() }}"></i></th>
-            <td>{{tech}}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="col-md-4">
-      <a href="" title="like project" ng-click="projectsShow.like()">
-        <i class="fa fa-5x" ng-class="(projectsShow.project.likes.includes(projectsShow.userId)) ? 'fa-heart' : 'fa-heart-o'"></i><br>
-        <span> Likes: {{ projectsShow.project.likes.length }} </span>
-      </a>
-    </div>
-  </div>
-
 </div>
 
-
-
-<div class="col-md-8">
+<div class="container">
   <div class="row">
-    <div class="col-sm-1" ng-repeat="tech in projectsShow.project.tech">
-      <i class="icon-{{ tech.toLowerCase() }}"></i>
-      <h5>{{ tech }}</h5>
+
+    <div class="col-md-10">
+      <div class="row">
+        <div class="col-sm-2" ng-repeat="tech in projectsShow.project.tech">
+          <i class="icon-{{ tech.toLowerCase() }}"></i>
+          <h5>{{ tech }}</h5>
+        </div>
+      </div>
     </div>
+
+    <div class="col-md-2">
+      <a title="like project" ng-click="projectsShow.like()">
+        <i class="fa fa-5x" ng-class="(projectsShow.project.likes.includes(projectsShow.userId)) ? 'fa-heart' : 'fa-heart-o'"></i><br>
+      </a>
+      <div class="likeCount"> Likes: {{ projectsShow.project.likes.length }}</div>
+    </div>
+
+
   </div>
+</div>
+
+  <div class="separator"></div>
 </div>

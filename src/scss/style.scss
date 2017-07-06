@@ -26,6 +26,16 @@
   }
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 //////////////////////////////////////////////// Variables
 
 $default: #3D2C51;
@@ -200,8 +210,6 @@ nav {
   }
 }
 
-
-
 i {
   font-size: 60px;
 }
@@ -359,6 +367,8 @@ ul {
 
 .findMore{
   float: right;
+  font-size: 16px;
+  font-weight: bold;
 }
 .eventBox {
   border: 1px solid $default;
@@ -520,6 +530,23 @@ $duration: 30s;
 
 .fa-heart, .fa-heart-o {
   color: $orange;
+  float: right;
+}
+
+div {
+  &.message {
+    p {
+      color: $danger;
+    }
+  }
+}
+
+.likeCount {
+  font-size: 30px;
+  font-weight: 400;
+  color: $orange;
+  clear: both;
+  text-align: right;
 }
 
 //profile styling
@@ -602,5 +629,21 @@ div {
       font-size: 20px;
       font-weight: bold;
     }
+  }
+}
+
+//project Show page
+.creatorInfo{
+  float: right;
+  text-align: right;
+  margin-top: 8%;
+  color: $default;
+}
+.projectInfo{
+  font-size: 18px;
+  color: $default;
+  h2{
+    font-size: 40px;
+    font-weight: bold;
   }
 }
