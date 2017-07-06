@@ -3,6 +3,7 @@ const User = require('../models/user');
 function showRoute(req, res, next) {
   User
     .findById(req.params.id)
+    .populate('projects')
     .exec()
     .then((user) => {
       if(!user) return res.notFound();
@@ -25,7 +26,7 @@ function updateRoute(req, res, next) {
       for(const field in req.body) {
         user[field] = req.body[field];
       }
-      
+
       return user.save();
     })
 

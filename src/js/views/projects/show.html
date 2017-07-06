@@ -40,36 +40,29 @@
     <img ng-src="{{ projectsShow.project.imageSRC }}" alt="">
   </div>
 
+</div>
+
+<div class="container">
   <div class="row">
 
-    <div class="col-md-8">
-      <table class="table">
-        <tbody>
-          <tr>
-            <th ng-repeat="tech in projectsShow.project.tech"><i class="icon-{{ tech.toLowerCase() }}"></i></th>
-            <td>{{tech}}</td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="col-md-10">
+      <div class="row">
+        <div class="col-sm-2" ng-repeat="tech in projectsShow.project.tech">
+          <i class="icon-{{ tech.toLowerCase() }}"></i>
+          <h5>{{ tech }}</h5>
+        </div>
+      </div>
     </div>
 
-    <div class="col-md-4">
-      <a href="" title="like project" ng-click="projectsShow.like()">
+    <div class="col-md-2">
+      <a title="like project" ng-click="projectsShow.like()">
         <i class="fa fa-5x" ng-class="(projectsShow.project.likes.includes(projectsShow.userId)) ? 'fa-heart' : 'fa-heart-o'"></i><br>
-        <span> Likes: {{ projectsShow.project.likes.length }} </span>
       </a>
+      <div class="likeCount"> Likes: {{ projectsShow.project.likes.length }}</div>
     </div>
-  </div>
-
-</div>
 
 
-
-<div class="col-md-8">
-  <div class="row">
-    <div class="col-sm-1" ng-repeat="tech in projectsShow.project.tech">
-      <i class="icon-{{ tech.toLowerCase() }}"></i>
-      <h5>{{ tech }}</h5>
-    </div>
   </div>
 </div>
+
+<div class="separator"></div>

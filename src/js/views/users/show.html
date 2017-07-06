@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 
 <h1 class="pageTitle">{{ usersShow.user.username }}'s Profile</h1>
+
+{{usersShow.user.projects}}
+
 <div class="userProgress container">
   <p>Profile Strength:</p>
   <uib-progressbar class="progress-striped active progress-width" value="usersShow.user.percentageComplete"  type="{{usersShow.type}}">{{usersShow.user.percentageComplete}} % </uib-progressbar>
