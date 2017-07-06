@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-
+{{usersShow.type}}
 <h1>user profile show</h1>
-
-    <uib-progressbar ng-if="main.isAuthenticated() && main.currentUserId === usersShow.user.id" animate="true" value="usersShow.user.percentageComplete" type="success" max="100"><b>{{usersShow.user.percentageComplete}} %</b></uib-progressbar>
+  <uib-progressbar class="progress-striped active" value="usersShow.user.percentageComplete"  type="{{usersShow.type}}">{{usersShow.user.percentageComplete}} % </uib-progressbar>
+    <!-- <uib-progressbar ng-if="main.isAuthenticated() && main.currentUserId === usersShow.user.id" animate="true" value="usersShow.user.percentageComplete" ng-class="usersShow.class" max="100"><b>{{usersShow.user.percentageComplete}} %</b></uib-progressbar> -->
 
 
 <h2>Username:{{ usersShow.user.username }}</h2>

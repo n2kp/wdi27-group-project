@@ -247,3 +247,23 @@ table {
   border: 1px solid $default;
   border-radius: 10px;
 }
+
+
+
+
+
+.progress-bar-success {
+    background-color: $success;
+}
+
+.progress-bar-warning {
+  background-color: $warning;
+}
+
+.progress-bar-danger {
+  background-color: $orange;
+}
+
+.progress-bar-crimson {
+  background-color: crimson;
+}

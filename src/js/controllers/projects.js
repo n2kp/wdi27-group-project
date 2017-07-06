@@ -18,18 +18,19 @@ function ProjectsIndexCtrl(Project, filterFilter, $scope) {
   });
 
   function filterProject() {
-    const params = { tech: vm.q };
-    vm.filtered = filterFilter(vm.all, params);
+    if(!vm.q) {
+      vm.filtered = vm.all;
+      return false;
+    }
 
+    const regex = new RegExp(vm.q, 'i');
+
+    vm.filtered = filterFilter(vm.all, (project) => {
+      return project.tech.some(tech => regex.test(tech));
+    });
   }
 
-
-
-  $scope.$watchGroup([
-    () => vm.q,
-
-    () => vm.tech
-  ], filterProject);
+  $scope.$watch(() => vm.q, filterProject);
 }
 
 
