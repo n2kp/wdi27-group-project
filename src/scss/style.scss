@@ -26,6 +26,16 @@
   }
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 //////////////////////////////////////////////// Variables
 
 $default: #3D2C51;
@@ -199,8 +209,6 @@ nav {
     }
   }
 }
-
-
 
 i {
   font-size: 60px;
@@ -520,4 +528,21 @@ $duration: 30s;
 
 .fa-heart, .fa-heart-o {
   color: $orange;
+  float: right;
+}
+
+div {
+  &.message {
+    p {
+      color: $danger;
+    }
+  }
+}
+
+.likeCount {
+  font-size: 30px;
+  font-weight: 400;
+  color: $orange;
+  clear: both;
+  text-align: right;
 }
