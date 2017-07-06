@@ -1,29 +1,32 @@
 // // Import all of your scss files here
-//
-// // font-family: 'Raleway', sans-serif;
-//
-// @import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
-//
+
+//////////////////////////////////////////////// Animations
 
 @keyframes pulse {
   0% {
     transform: scale(1);
   }
-  // 25% {
-  //   transform: scale(1.1);
-  // }
   50% {
     transform: scale(1.2);
   }
-  // 75% {
-  //   transform: scale(1.1);
-  // }
   100% {
     transition: scale(1);
   }
 }
 
-// Variables
+@keyframes pulseLight {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.04);
+  }
+  100% {
+    transition: scale(1);
+  }
+}
+
+//////////////////////////////////////////////// Variables
 
 $default: #3D2C51;
 $primary: #1792AE;
@@ -34,7 +37,7 @@ $danger:  #FF2E00;
 $orange:  #FF8900;
 $green:   #005B46;
 
-// Extends
+//////////////////////////////////////////////// Extends
 
 .rainbow {
   background-image: linear-gradient(to right, $default, $danger 20%, $orange 40%, $primary 60%, $success 80%, $green);
@@ -55,7 +58,7 @@ $green:   #005B46;
   font-size: 14px;
   padding: 8px 10px;
   border: 0;
-  border-radius: 4px;
+  border-radius: 5px;
   background-color: white;
   &:focus {
     outline: none !important;
@@ -70,7 +73,35 @@ $green:   #005B46;
   }
 }
 
-// Styling
+.danger {
+  background-color: $danger;
+  color: white;
+  &:hover {
+    color: $warning;
+  }
+}
+
+.primary {
+  background-color: $primary;
+  color: white;
+  &:hover {
+    color: $warning;
+  }
+}
+
+.warning {
+  background-color: $warning;
+  color: white;
+  &:hover {
+    color: $danger;
+  }
+}
+
+//////////////////////////////////////////////// Styling
+
+* {
+  box-sizing: border-box;
+}
 
 body {
   background-image: url('http://cdn.wallpapersafari.com/49/2/eEQzwl.jpg');
@@ -205,7 +236,7 @@ hr {
 
 button {
   &.btn {
-    border-radius: 10px;
+    border-radius: 5px;
   }
 }
 
@@ -218,7 +249,7 @@ button {
 }
 
 .loginBtn {
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .btn_linkedin {
@@ -269,7 +300,7 @@ ul {
           top:0;
           min-width: 100vw;
           height: 300px;
-          border-radius: 10px;
+          border-radius: 5px;
           background-position: center;
           background-size: cover;
           // filter: brightness(.5);
@@ -334,7 +365,7 @@ table {
 
 .eventBox {
   border: 1px solid $default;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 
@@ -419,3 +450,64 @@ $duration: 30s;
 
 .progress-bar-crimson {
   background-color: $danger;
+}
+
+
+.modal-header {
+  background-color: $primary;
+  height: 80px;
+  h3 {
+    text-align: center;
+    font-size: 36px;
+    color: $default
+  }
+}
+
+.modal-body {
+  min-height: 160px;
+  margin-left: 30px;
+  margin-right: 30px;
+  h4 {
+    text-align: center;
+    font-size: 22px;
+    color: $default;
+  }
+  h6 {
+    text-align: center;
+    font-size: 18px;
+    color: white;
+    background-color: $danger;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: .5px solid $danger;
+    border-radius: 5px;
+    padding: 5px;
+    animation: pulseLight 1s infinite;
+  }
+  p {
+    text-align: center;
+    color: $default;
+    font-size: 16px;
+  }
+}
+
+.modal-footer {
+  background-color: $primary;
+  button {
+    width: 120px;
+    font-size: 16px;
+  }
+}
+
+.showImage {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  img {
+    border: 3px solid $default;
+    border-radius: 10px;
+  }
+}
+
+.fa-heart, .fa-heart-o {
+  color: $orange;
+}
