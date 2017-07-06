@@ -37,7 +37,7 @@ $green:   #005B46;
 // Extends
 
 .rainbow {
-  background-image: linear-gradient(to right, #3D2C51, #FF2E00 20%, #FF8900 40%, #1792AE 60%, #48A15D 80%, #005B46);
+  background-image: linear-gradient(to right, $default, $danger 20%, $orange 40%, $primary 60%, $success 80%, $green);
   color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
@@ -193,9 +193,9 @@ footer {
   color: $default;
 }
 
-.devbookIntro {
-  text-align: center;
-}
+// .devbookIntro {
+//   text-align: center;
+// }
 
 hr {
   border-color: black;
@@ -229,11 +229,32 @@ button {
   }
 }
 
+.btn_home {
+  background-color: $success;
+  color: white;
+}
+
+.quote{
+  float: left;
+  padding-top: 20%;
+  diplay: inline-grid;
+  text-align: center;
+}
+
+.quoteAuthenticated{
+  padding: 10%;
+}
+
 .devbookIntro, .loginBox {
   margin: 25px;
   border: 1px solid black;
   padding: 30px;
+  float: right;
+  display: inline-grid;
+  width: 100%;
+  text-align: center;
 }
+
 
 ul {
   overflow: hidden;
@@ -383,3 +404,18 @@ $duration: 30s;
     }
   }
 }
+
+.progress-bar-success {
+    background-color: $success;
+}
+
+.progress-bar-warning {
+  background-color: $warning;
+}
+
+.progress-bar-danger {
+  background-color: $orange;
+}
+
+.progress-bar-crimson {
+  background-color: $danger;

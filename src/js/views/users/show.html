@@ -64,7 +64,7 @@
         </div>
 
         <div class="userProgress">
-          <uib-progressbar ng-if="main.isAuthenticated() && main.currentUserId === usersShow.user.id" animate="true" value="usersShow.user.percentageComplete" type="success" max="100"><b>{{usersShow.user.percentageComplete}} %</b></uib-progressbar>
+          <uib-progressbar class="progress-striped active" value="usersShow.user.percentageComplete"  type="{{usersShow.type}}">{{usersShow.user.percentageComplete}} % </uib-progressbar>
         </div>
 
       </div>
