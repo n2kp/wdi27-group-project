@@ -49,6 +49,7 @@ function deleteProject(req, res, next){
 }
 
 function updateProject(req, res, next){
+  if(req.file) req.body.image = req.file.filename;
   req.body.createdBy = req.body.createdBy.id;
   Project
   .findById(req.params.id)
