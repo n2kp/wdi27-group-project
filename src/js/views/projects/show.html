@@ -8,7 +8,7 @@
     <div class="col-md-5">
       <h2>{{ projectsShow.project.title }}</h2>
       <p>{{ projectsShow.project.description }}</p>
-      <p>{{ projectsShow.project.dateCreated }}</p>
+      <p>{{ projectsShow.project.dateCreated | date : 'd-MMMM-y' }}</p>
       <a href="{{ projectsShow.project.projectUrl }}" target="_blank">Link to Project</a>
     </div>
 
@@ -29,18 +29,19 @@
   <div class="row">
     <div class="col-md-7 col-md-offset-5">
 
-      <button class="btn btn-block" ng-if="main.isAuthenticated() && main.currentUserId === projectsShow.project.createdBy.id " ui-sref="projectsEdit({ id: projectsShow.project.id})">Edit</button>
+      <button class="btn btn-block primary" ng-if="main.isAuthenticated() && main.currentUserId === projectsShow.project.createdBy.id " ui-sref="projectsEdit({ id: projectsShow.project.id})">Edit</button>
 
-      <button class="btn btn-block" ng-if="main.isAuthenticated() && main.currentUserId === projectsShow.project.createdBy.id" ng-click="projectsShow.open()">Delete</button>
+      <button class="btn btn-block danger" ng-if="main.isAuthenticated() && main.currentUserId === projectsShow.project.createdBy.id" ng-click="projectsShow.open()">Delete</button>
 
     </div>
   </div>
 
-  <div class="row">
+  <div class="row showImage">
     <img ng-src="{{ projectsShow.project.imageSRC }}" alt="">
   </div>
 
   <div class="row">
+
     <div class="col-md-8">
       <table class="table">
         <tbody>
@@ -54,10 +55,21 @@
 
     <div class="col-md-4">
       <a href="" title="like project" ng-click="projectsShow.like()">
-        <i class="fa fa-2x" ng-class="(projectsShow.project.likes.includes(projectsShow.userId)) ? 'fa-heart' : 'fa-heart-o'"></i><br>
+        <i class="fa fa-5x" ng-class="(projectsShow.project.likes.includes(projectsShow.userId)) ? 'fa-heart' : 'fa-heart-o'"></i><br>
         <span> Likes: {{ projectsShow.project.likes.length }} </span>
       </a>
     </div>
   </div>
 
+</div>
+
+
+
+<div class="col-md-8">
+  <div class="row">
+    <div class="col-sm-1" ng-repeat="tech in projectsShow.project.tech">
+      <i class="icon-{{ tech.toLowerCase() }}"></i>
+      <h5>{{ tech }}</h5>
+    </div>
+  </div>
 </div>
