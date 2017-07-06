@@ -525,7 +525,7 @@ $duration: 30s;
 //profile styling
 .userInfo{
   float:right;
-  border: $default 2px solid;
+  border: $default 1px solid;
   .profilePicture{
     border-radius: 50%;
     height: 200px;
@@ -576,6 +576,14 @@ div {
   }
   &.button-div {
     text-align: center;
+  }
+  &.userShowContent {
+    text-align: justify;
+  }
+  &.individualProjectBox {
+    margin: 20px auto;
+    border-bottom: 1px solid $default;
+    padding-bottom: 20px;
   }
 }
 
