@@ -18,7 +18,7 @@
       <h2>Your Projects</h2>
       <div class="row individualProjectBox" ng-repeat="project in usersShow.user.projects">
         <div class="col-md-4">
-          <img ng-src="{{project.image}}" alt="">
+          <img ng-src="{{project.imageSRC}}" alt="">
         </div>
         <div class="col-md-7 userShowContent">
           <a ui-sref="projectsShow({ id: project.id })"><h4>{{project.title}}</h4></a>
