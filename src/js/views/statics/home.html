@@ -35,7 +35,7 @@
 
           <div class="regForm">
 
-            <form class="form-horizontal" name="register.registerForm" ng-submit="register.submit()" novalidate>
+            <form class="form-horizontal" name="register.registerForm" ng-submit="register.submit()" novalidate ng-controller="RegisterCtrl as register">
 
               <div class="form-group">
                 <input class="form-control" type="text" name="username" id="username" ng-model="register.user.username" required placeholder="Username">

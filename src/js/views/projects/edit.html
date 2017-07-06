@@ -3,70 +3,78 @@
 <h1 class="pageTitle">Edit Project</h1>
 
 <div class="container">
-  <form ng-submit="projectsEdit.update()" name="projectsEdit.editForm" novalidate>
-    <div class="col-lg-6">
 
 
-      <div class="form-group row">
-        <label for="title" class="col-sm-2 col-form-label">Project Title</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="title" ng-model="projectsEdit.project.title" name="title" required>
-          <div ng-messages="projectsEdit.editForm.title.$error" ng-show="projectsEdit.editForm.$submitted ||projectsEdit.editForm.title.$touched">
-            <div class="notification" ng-message="required">Please add a title</div>
+    <form ng-submit="projectsEdit.update()" name="projectsEdit.editForm" novalidate>
+      <div class="row">
+
+      <div class="col-lg-6">
+        <div class="form-group row">
+          <label for="title" class="col-sm-2 col-form-label">Project Title</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="title" ng-model="projectsEdit.project.title" name="title" required>
+            <div class="error" ng-messages="projectsEdit.editForm.title.$error" ng-show="projectsEdit.editForm.$submitted ||projectsEdit.editForm.title.$touched">
+              <div class="notification" ng-message="required">Please add a title</div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="description" class="col-sm-2 col-form-label">Project Description</label>
+          <div class="col-sm-10">
+            <textarea class="form-control" id="description" ng-model="projectsEdit.project.description" maxlength="500" required></textarea>
+            <div class="error" ng-messages="projectsEdit.editForm.description.$error" ng-show="projectsEdit.editForm.description.$submitted || projectsEdit.editForm.description.$touched">
+              <div class="notification" ng-message="required">Please add a description</div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="projectUrl" class="col-sm-2 col-form-label">Project Url</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="projectUrl" ng-model="projectsEdit.project.projectUrl" name="projectUrl" required>
+            <div class="error" ng-messages="projectsEdit.editForm.projectUrl.$error" ng-show="projectsEdit.editForm.$submitted ||projectsEdit.editForm.projectUrl.$touched">
+              <div class="notification" ng-message="required">Please add a Project Url</div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="dateCreated" class="col-sm-2 col-form-label">Date created</label>
+          <div class="col-sm-10">
+            <input type="date" class="form-control" id="dateCreated" ng-model="projectsEdit.project.dateCreated" name="dateCreated">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="tech" class="col-sm-2 col-form-label">Tech</label>
+          <div class="col-sm-10">
+            <ui-select multiple tagging tagging-label="false" ng-model="projectsEdit.project.tech" theme="bootstrap" ng-disabled="main.disabled" style="width: 300px;" title="Choose a color">
+              <ui-select-match placeholder="Select techs...">{{ $item }}</ui-select-match>
+              <ui-select-choices repeat="tech in main.availableTechs | filter:$select.search">
+                {{tech}}
+              </ui-select-choices>
+            </ui-select>
           </div>
         </div>
       </div>
 
-      <div class="form-group row">
-        <label for="description" class="col-sm-2 col-form-label">Project Description</label>
-        <div class="col-sm-10">
-          <textarea class="form-control" id="description" ng-model="projectsEdit.project.description" maxlength="500" required></textarea>
-          <div ng-messages="projectsEdit.editForm.description.$error" ng-show="projectsEdit.editForm.description.$submitted || projectsEdit.editForm.description.$touched">
-            <div class="notification" ng-message="required">Please add a description</div>
+      <div class="col-lg-6">
+        <div class="form-group row">
+          <label for="image" class="col-sm-2 col-form-label">Image Url</label>
+          <div class="col-sm-10">
+            <input base64 type="file" class="form-control" id="image" ng-model="projectsEdit.project.base64" name="base64">
+            <img ng-src="{{projectsEdit.project.base64}}" alt="">
+            <div class="error" ng-messages="projectsEdit.editForm.image.$error" ng-show="projectsEdit.editForm.$submitted ||projectsEdit.editForm.image.$touched">
+              <div class="notification" ng-message="required">Please add image url</div>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="form-group row">
-        <label for="projectUrl" class="col-sm-2 col-form-label">Project Url</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="projectUrl" ng-model="projectsEdit.project.projectUrl" name="projectUrl" required>
-          <div ng-messages="projectsEdit.editForm.projectUrl.$error" ng-show="projectsEdit.editForm.$submitted ||projectsEdit.editForm.projectUrl.$touched">
-            <div class="notification" ng-message="required">Please add a Project Url</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-6">
-      <div class="form-group row">
-        <label for="image" class="col-sm-2 col-form-label">Image Url</label>
-        <div class="col-sm-10">
-          <input base64 type="file" class="form-control" id="image" ng-model="projectsEdit.project.base64" name="base64">
-          <img ng-src="{{projectsEdit.project.base64}}" alt="">
-          <div ng-messages="projectsEdit.editForm.image.$error" ng-show="projectsEdit.editForm.$submitted ||projectsEdit.editForm.image.$touched">
-            <div class="notification" ng-message="required">Please add image url</div>
-          </div>
-        </div>
-      </div>
-      <div class="form-group row">
-        <label for="tech" class="col-sm-2 col-form-label">Tech</label>
-        <div class="col-sm-10">
-          <ui-select multiple tagging tagging-label="false" ng-model="projectsEdit.project.tech" theme="bootstrap" ng-disabled="main.disabled" style="width: 300px;" title="Choose a color">
-             <ui-select-match placeholder="Select techs...">{{ $item }}</ui-select-match>
-               <ui-select-choices repeat="tech in main.availableTechs | filter:$select.search">
-               {{tech}}
-             </ui-select-choices>
-           </ui-select>
-           <p>Selected: {{projectsEdit.project.tech}}</p>
-        </div>
       </div>
 
-      <div class="form-group row">
-        <div class="offset-sm-2 col-sm-10">
-          <input type="submit" class="btn" value="Submit Changes">
-        </div>
+      <div class="row button">
+        <input type="submit" class="btn" value="Submit Changes">
       </div>
-    </div>
-  </form>
+
+    </form>
+
+
 </div>
