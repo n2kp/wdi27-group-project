@@ -94,7 +94,7 @@ function UsersDeleteCtrl($uibModalInstance, user, $state) {
     vm.user
       .$remove()
       .then(() => {
-        $state.go('home');
+        $state.go('login');
         $uibModalInstance.close();
       });
   }
