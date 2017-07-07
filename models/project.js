@@ -19,7 +19,7 @@ projectSchema
   .virtual('imageSRC')
   .get(function getImageSRC() {
     if(!this.image) return null;
-    if(this.image.match(/^http/)) return this.image;
+    if(this.image.match(/^http/) || this.image.match(/^\/images\//)) return this.image;
     return `https://s3-eu-west-1.amazonaws.com/wdi27group-project/${this.image}`;
   });
 

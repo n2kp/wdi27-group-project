@@ -29,5 +29,5 @@ function HomeCtrl( ) {
 
 
   vm.todayQuote = quote[randomquote];
-  console.log(vm.todayQuote);
+  
 }

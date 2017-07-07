@@ -8,7 +8,6 @@ function EventsService($http){
     return $http
       .get('/api/events', {params: { lat, lng }})
       .then((response) => {
-        console.log(response);
         return response.data.map(event => {
           return {
             name: event.name.text,

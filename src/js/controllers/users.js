@@ -9,10 +9,11 @@ function UsersShowCtrl(User, $state, $auth, $uibModal) {
   const vm = this;
   User.get($state.params, (data)=>{
     vm.user = data;
-    console.log(vm.user);
     calculateProgressType();
   });
 
+
+//in order to change the colors of the progressbar depending on the amount they have filled in.
   function calculateProgressType() {
     if (vm.user.percentageComplete < 35) {
       vm.type = 'crimson';
@@ -60,15 +61,15 @@ function UsersEditCtrl(User, $stateParams, $state) {
       if(!vm.user.avatar) vm.user.avatar = vm.avatars[Math.floor(Math.random() * vm.avatars.length)];
     });
 
+
+//function for selecting Avatar and attaching it to the vm.user
   function selectAvatar(avatar) {
-    console.log(avatar);
     vm.user.avatar = avatar;
   }
 
   vm.selectAvatar = selectAvatar;
 
   function usersUpdate() {
-    console.log(vm.user);
     if(vm.editForm.$valid) {
       vm.user
         .$update()

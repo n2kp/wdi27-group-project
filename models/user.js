@@ -35,30 +35,16 @@ userSchema
     // }
     // return value;
 
+
+
+    //using reduce on an array to return a single value of how many fields are full, change the progress bar by 15 depending on the result and start with 10% given to the user for giving their username at registration.
+
     return ['email', 'avatar', 'githubUrl', 'linkedinUrl', 'portfolioUrl', 'tech'].reduce((value, key) => {
       return this[key] && this[key].length > 0 ? value + 15 : value;
     }, 10);
 
 
   });
-
-
-
-// userSchema
-//   .virtual('progressbarType')
-//   .get(function getProgressbarType(){
-//
-//
-//     if (value < 25) {
-//       type= 'danger';
-//     } else if (value < 50 ) {
-//       type='warning';
-//     } else if (value < 75 ) {
-//       type='info';
-//     } else {
-//       type='success';
-//     }
-//   });
 
 
 

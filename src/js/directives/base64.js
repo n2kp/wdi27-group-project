@@ -15,7 +15,6 @@ function base64() {
 
       element.on('change', (e) => {
         const file = (e.target.files || e.dataTransfer.files)[0];
-        console.log(file);
         fileReader.readAsDataURL(file);
       });
     }

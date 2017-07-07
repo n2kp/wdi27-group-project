@@ -19,7 +19,7 @@ function googleMap(eventsService, mapStyles) {
       events: '='
     },
     link(scope, element) {
-      console.log(element);
+      
 
       getUserLocation();
 

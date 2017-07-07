@@ -99,11 +99,10 @@ function MainCtrl($rootScope, $state, $auth, $transitions) {
   $transitions.onSuccess({}, (transition) => {
     vm.pageName = transition.$to().name;
     vm.menuIsOpen = false;
-    console.log(vm.menuIsOpen);
     if(vm.stateHasChanged) vm.message = null;
     if(!vm.stateHasChanged) vm.stateHasChanged = true;
     if($auth.getPayload()) vm.currentUserId = $auth.getPayload().userId;
-    console.log(vm.currentUserId);
+
   });
 
   function logout() {

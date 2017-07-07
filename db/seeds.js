@@ -136,7 +136,7 @@ User
       },{
         title: 'A-level Physics Game',
         description: 'My first game created as my first project at GA. This game is designed for students beginning A-level physics to help build a bridge from GCSE, the game uses Javascript to test students and gives a mark based on answers correct and time to complete, the game then specifies exactly what the student needs to do to improve',
-        image: '../src/images/physicsgame.png',
+        image: '/images/physicsgame.png',
         projectUrl: 'https://sheltered-brushlands-62914.herokuapp.com/',
         dateCreated: '2017-05-20',
         tech: ['Git', 'Gulp', 'npm', 'Heroku', 'Jquery', 'HTML5', 'SASS', 'JavaScript'],
@@ -144,7 +144,7 @@ User
       },{
         title: 'Posi-Live-vity',
         description: 'A RESTful app created for my second project, which incorporates mental health with physical health by pulling in data from the fitbit API and allowing users to log feelings and emotion associated with the day ',
-        image: '../src/images/posi.png',
+        image: '/images/posi.png',
         projectUrl: 'https://desolate-dawn-12872.herokuapp.com/',
         dateCreated: '2017-05-20',
         tech: ['Git', 'Gulp', 'npm', 'Heroku', 'Jquery', 'HTML5', 'SASS', 'JavaScript'],

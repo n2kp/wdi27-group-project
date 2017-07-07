@@ -103,12 +103,10 @@ function ProjectsEditCtrl(Project, $stateParams, $state) {
   const vm = this;
 
   vm.project = Project.get($stateParams);
-  console.log(vm.project);
 
   function projectsUpdate() {
-    console.log('running projects update');
+
     if(vm.editForm.$valid) {
-      console.log('valid!');
       vm.project
         .$update()
         .then(() => $state.go('projectsShow', $stateParams));
