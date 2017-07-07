@@ -27,6 +27,6 @@
     "mh-dragdrop-image": "*"
   },
   "resolutions": {
-    "angular": "1.6.4"
+    "angular": "^1.6.4"
   }
 }
