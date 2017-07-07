@@ -115,8 +115,8 @@ function ProjectsEditCtrl(Project, $stateParams, $state) {
   vm.update = projectsUpdate;
 }
 
-ProjectsDeleteCtrl.$inject = ['$uibModalInstance', 'project', '$state'];
-function ProjectsDeleteCtrl($uibModalInstance, project, $state) {
+ProjectsDeleteCtrl.$inject = ['$uibModalInstance', 'project', '$state', 'Project'];
+function ProjectsDeleteCtrl($uibModalInstance, project, $state, Project) {
   const vm = this;
   vm.project = project;
 
@@ -127,8 +127,9 @@ function ProjectsDeleteCtrl($uibModalInstance, project, $state) {
   vm.closeModal = closeModal;
 
   function projectsDelete() {
-    vm.project
-    .$remove()
+    Project
+    .remove(vm.project)
+    .$promise
     .then(() => {
       $state.go('projectsIndex');
       $uibModalInstance.close();

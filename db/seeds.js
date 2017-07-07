@@ -172,21 +172,13 @@ User
         tech: ['Git', 'Gulp', 'npm', 'Heroku', 'Jquery', 'HTML5', 'SASS', 'JavaScript'],
         createdBy: users[2]
       },{
-        title: 'Keep Portland Weired',
+        title: 'Keep Portland Weird',
         description: 'A website designed for the community to celebrate the best bits of the community ',
         image: 'https://designmodo.com/wp-content/uploads/2015/12/21-Keep-Portland-Weird.jpg',
         projectUrl: 'https://www.magicoflapland.net/',
         dateCreated: '2017-05-20',
         tech: ['Git', 'Gulp', 'npm', 'Heroku', 'Jquery', 'HTML5', 'SASS', 'JavaScript'],
         createdBy: users[7]
-      },{
-        title: 'Creative Cloud',
-        description: 'My project based on the Adobe website, testing my CSS skills',
-        image: 'https://designmodo.com/wp-content/uploads/2015/12/21-Keep-Portland-Weird.jpg',
-        projectUrl: 'https://www.magicoflapland.net/',
-        dateCreated: '2017-05-20',
-        tech: ['Git', 'Gulp', 'Aws','Azure','Codeigniter', 'Codepen', 'Dreamhost', 'Heroku', 'Jquery', 'HTML5', 'SASS', 'JavaScript'],
-        createdBy: users[1]
       },{
         title: 'My Tumbler',
         description: 'I wanted to practise my CSS skills, so I decided to created a replica of tumbler',
