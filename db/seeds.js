@@ -216,7 +216,7 @@ User
       },{
         title: 'Indigo',
         description: 'Working to build online journal. Really simple but effective design.',
-        image: 'http://i.imgur.com/undefined.png',
+        image: 'http://i.imgur.com/Crxf5NO.png',
         projectUrl: 'https://unsplash.com/?photo=1d7J26G9xVY',
         dateCreated: '2017-03-10',
         tech: ['Elm', 'Plone', 'Wordpress', 'Azure'],
