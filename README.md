@@ -112,8 +112,8 @@ Ultimately we would aim to create a site that would allow users to link with oth
 This project was created by:
 
 [**Nimesh Patel**](https://github.com/n2kp)
-[**Angela Maugey**] (https://github.com/maugeya)
-[**Clare McLoughlin**] (https://github.com/McLoughlinClare)
+[**Angela Maugey**](https://github.com/maugeya)
+[**Clare McLoughlin**](https://github.com/McLoughlinClare)
 
 ##Using The Site
 DevBook is available to and register on [here.](https://developerbook.herokuapp.com/) 
